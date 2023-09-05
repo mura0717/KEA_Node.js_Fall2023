@@ -1,11 +1,13 @@
 // import express
-//const express = require("express");
+const express = require("express");
 
 // instantiante express
-//const app = express();
+const app = express();
 
 //in one line:
-const app = require("express")();
+//const app = require("express")();
+
+app.use(express.json());
 
 const otherData = 123;
 
@@ -29,6 +31,11 @@ app.get("/dog/:firstValue/:someOtherValue", (req, res) => {
     res.send({dog: "Meow"});
 });
 
+app.get("/cat", (req, res) => {
+    console.log(req.query);
+    res.send({ data: req.query});
+}) 
+
 let balance = 100;
 app.get("/wallet/:withdrawalAmount", (req, res) => {
     balance = balance-req.params.withdrawalAmount;
@@ -38,6 +45,11 @@ app.get("/wallet/:withdrawalAmount", (req, res) => {
         res.send({ message: `You withdrew ${req.params.withdrawalAmount} , New Balance: ${balance}`});
     }
 });
+
+app.post("/giveMeTheBody", (req, res) => {
+    console.log(req.body);
+    res.send(req.body);
+})
 
 //80 http
 //443 https
