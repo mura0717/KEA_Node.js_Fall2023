@@ -56,4 +56,4 @@ app.post("/giveMeTheBody", (req, res) => {
 //8080 http developer
 //9090 https developer
 
-app.listen(8080);
+app.listen(8080); //hang in the terminal, check http://localhost:8080/
