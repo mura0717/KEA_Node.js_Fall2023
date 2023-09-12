@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <!-- solution 3: link -->
+    <!-- <link rel="stylesheet" href="home.css"> -->
+    <!-- solution 2: in file -->
+    <style> 
+        #title {
+            color: red;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title> <!-- TabTitle -->
 </head>
 <body>
-    <h1>Home</h1>
-    
+    <!-- Inline Styling -->
+    <!-- <h1 style="color:red">Home</h1>  -->
+    <h1 id="title">Home</h1>
+    <h2>This will be deployed via Vercel.</h2>
+    <h3 id="welcomeMessage"></h3>
+   
+    <!-- assignment: create a console log in the console "hello" a second after the client visits the frontpage --> 
+    <script>
+
+        // asignment: personalize the message
+        fetch('welcomeMessage?user=Kaan')
+        .then((response) => response.json())
+        .then((result) => {
+            const welcomeMessageHeader = document.getElementById("welcomeMessage");
+            welcomeMessageHeader.innerText = result.data; //prints on the page.
+            console.log(result.data); //logs into console in browser
+        });
+   
+
+
+/*         setTimeout(() => {
+            console.log("hello");
+        }, 1000); */
+    </script>
 </body>
 </html>
