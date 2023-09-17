@@ -104,6 +104,10 @@
 
         allAlarms.innerHTML =''; //clears textContent
 
+        if (data.alarms.length === 0) {
+            allAlarms.textContent = "No alarms yet.";
+        }
+
         if (data && data.alarms) {
             data.alarms.forEach((alarm) => {
             const alarmProperties = Object.entries(alarm)
@@ -114,9 +118,9 @@
             allAlarms.appendChild(listItem);
         });
         } else {
-            document.getElementById("allAlarms").textContent = "No alarms yet.";
+            allAlarms.textContent = "Error populating alarms' list.";
+             };
         }
-    }
 
     async function editAlarm() {
         const editAlarmId = document.getElementById("editAlarmId").value;
