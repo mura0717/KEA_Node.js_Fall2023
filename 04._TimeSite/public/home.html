@@ -24,7 +24,7 @@
 
 </head>
 <body>
-    
+
     <div class="blink">Alarm Alarm Alarm</div>
 
     <!-- Create a new alarm -->
@@ -34,9 +34,9 @@
 
      <!-- Get a specific alarm -->
      <h2>Get a specific alarm</h2>
-     <input type="number" id="getAlarmId" placeholder="alarmId">
+     <input type="number" id="getAlarmId" placeholder="Alarm Id">
      <button onclick="getAlarm()">Get Alarm</button>
-     <p id="specificAlarm"></p>
+     <div id="specificAlarm"></div>
 
     <!-- Get all alarms -->
     <h2>Get all alarms</h2>
@@ -45,15 +45,136 @@
 
     <!-- Edit an alarm -->
     <h2>Edit an alarm</h2>
-    <input type="number" id="editAlarmId" placeholder="alarmId">
+    <input type="number" id="editAlarmId" placeholder="Alarm Id">
     <input type="time" id="editedAlarmTime">
     <button onclick="editAlarm()">Edit Alarm</button>
 
     <!-- Delete an alarm -->
     <h2>Delete an alarm</h2>
-    <input type="number" id="deleteAlarmId" placeholder="alarmId">
+    <input type="number" id="deleteAlarmId" placeholder="Alarm Id">
     <button onclick="deleteAlarm()">Delete Alarm</button>
    
-    
 </body>
+
+<script>
+
+    async function createAlarm() {
+        const newAlarm = document.getElementById("newAlarm").value;
+
+        if (!newAlarm) {
+        alert("Please provide a time for the alarm.");
+        return;
+        }
+        
+        const res = await fetch ("/alarms", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({alarm: newAlarm})
+        })
+        const data = await res.json();
+        alert(`Alarm created with Id: ${data.data.id} and time: ${data.data.alarm}`);
+    }
+    
+
+    async function getAlarm() {
+        const alarmId = document.getElementById("getAlarmId").value;
+        const res = await fetch (`/alarms/${alarmId}`);
+        const data = await res.json();
+
+        const specificAlarm = document.getElementById("specificAlarm")
+        specificAlarm.innerHTML =''; //clears textContent
+
+        if (data.alarm){
+            const alarmProperties = Object.entries(data.alarm)
+                .map(([key, value]) => `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`)
+                .join(", ");
+            document.getElementById("specificAlarm").textContent = `${alarmProperties}`;
+        } else {
+            document.getElementById("specificAlarm").textContent = "Alarm not found.";
+        }
+    }
+
+    async function getAllAlarms() {
+        const allAlarms = document.getElementById("allAlarms");
+        const res = await fetch (`/alarms`);
+        const data = await res.json();
+
+        allAlarms.innerHTML =''; //clears textContent
+
+        if (data && data.alarms) {
+            data.alarms.forEach((alarm) => {
+            const alarmProperties = Object.entries(alarm)
+                .map(([key, value]) => `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`)
+                .join(", ");
+            const listItem = document.createElement("li");
+            listItem.textContent = `${alarmProperties}`;
+            allAlarms.appendChild(listItem);
+        });
+        } else {
+            document.getElementById("allAlarms").textContent = "No alarms yet.";
+        }
+    }
+
+    async function editAlarm() {
+        const editAlarmId = document.getElementById("editAlarmId").value;
+        const editedTime = document.getElementById("editedAlarmTime").value;
+        
+        const res = await fetch (`/alarms/${editAlarmId}`);
+        const data = await res.json();
+
+        if (res.status === 404) {
+        alert("Alarm not found.");
+        return;
+        }
+
+        if (!editedTime) {
+        alert("Please provide a new time for the alarm.");
+        return;
+        }
+
+        const updatedAlarm = {...data.alarms, alarm: editedTime};
+        const patchRes = await fetch(`/alarms/${editAlarmId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedAlarm),
+        });
+
+        if (patchRes.status === 200) {
+        alert(`Alarm with id: ${editAlarmId} edited to ${editedTime}`);
+        } else {
+        alert("Failed to edit the alarm.");
+        }
+    }
+
+    async function deleteAlarm() {
+        const deleteAlarmId = document.getElementById("deleteAlarmId").value;
+        const res = await fetch (`/alarms/${deleteAlarmId}`);
+        const data = await res.json();
+
+        if (res.status === 404) {
+        alert("Alarm not found.");
+        return;
+        }
+
+        if(data.alarm){
+            const alarmProperties = Object.entries(data.alarm)
+                .map(([key, value]) => `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`)
+                .join(", with ");
+
+            const deleteRes = await fetch(`/alarms/${deleteAlarmId}`, {
+            method: "DELETE",
+        });
+
+        if (deleteRes.status === 200) {
+            alert(`${alarmProperties} is deleted.`);
+        } else {
+            alert("Failed to delete the alarm.");
+        }
+    }
+}
+</script>
 </html>

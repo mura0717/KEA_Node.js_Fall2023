@@ -20,12 +20,12 @@ app.get("/alarms", (req, res) => {
 
 //get alarm by id
 app.get("/alarms/:id", (req, res) => {
-    const pathVariableAlarmId = req.params.id;
-    if (pathVariableAlarmId  >= 1 && pathVariableAlarmId < alarms.length){
-        const foundAlarm = alarms[pathVariableAlarmId];
-        req.send({alarm:pathVariableAlarmId});
+    const pathVariableAlarmId = Number(req.params.id);
+    if (!pathVariableAlarmId){
+        res.status(404).send({error: "Invalid alarm Id."})
     } else {
-        req.send({alarm:"Alarm not found."});
+        const foundAlarm = alarms.find((alarm) => alarm.id === pathVariableAlarmId);
+        res.send({alarm: foundAlarm});
     }
 });
 
@@ -40,7 +40,7 @@ app.post("/alarms", (req, res) => {
 app.patch("/alarms/:id", (req, res) => {
     let foundAlarmId = alarms.findIndex((alarm) => alarm.id === Number(req.params.id));
     if (foundAlarmId === -1) {
-        res.status(416).send({error: `No alarm by id: ${req.params.id}`});
+        res.status(404).send({error: `No alarm by id: ${req.params.id}`});
     } else {
         alarms[foundAlarmId] = {...alarms[foundAlarmId], ...req.body, id: Number(req.params.id)};
         res.send({data: alarms[foundAlarmId]});
@@ -49,8 +49,8 @@ app.patch("/alarms/:id", (req, res) => {
 
 app.delete("/alarms/:id", (req, res) => {
     const foundAlarmId = alarms.findIndex((alarm) => alarm.id === Number(req.params.id));
-    if(foundAlarmId = -1){
-        res.status(416).send({error: `No alarm by id: ${req.params.id}`});
+    if(foundAlarmId === -1){
+        res.status(404).send({error: `No alarm by id: ${req.params.id}`});
     } else {
         alarms.splice(foundAlarmId, 1);
         res.send({message: "Alarm deleted."})
