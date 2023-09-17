@@ -11,7 +11,7 @@
       background:red;
       color:white;
       width: 280px;
-      font-size:xx-large;
+      font-size: xx-large;
       font-weight:bold;
     }
     
@@ -25,6 +25,7 @@
 </head>
 <body>
 
+    <img src="https://media2.giphy.com/media/oFfNvh4r621WxqrzZb/giphy.gif?cid=ecf05e47g6dg8hly26ose7s9339pr2h6arrwvzre8s1um1t1&ep=v1_gifs_search&rid=giphy.gif&ct=g" style="float: right;">
     <div class="blink">Alarm Alarm Alarm</div>
 
     <!-- Create a new alarm -->
@@ -65,7 +66,7 @@
         alert("Please provide a time for the alarm.");
         return;
         }
-        
+
         const res = await fetch ("/alarms", {
             method: "POST",
             headers: {
