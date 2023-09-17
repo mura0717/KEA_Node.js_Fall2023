@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Alarm Alarm</title>
+    
+    <style>
+        .blink {
+      animation: blinker 1s linear infinite;
+      background:red;
+      color:white;
+      width: 280px;
+      font-size:xx-large;
+      font-weight:bold;
+    }
+    
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+      }
+    }
+      </style>
+
+</head>
+<body>
+    
+    <div class="blink">Alarm Alarm Alarm</div>
+
+    <!-- Create a new alarm -->
+    <h2>Create a new alarm</h2>
+    <input type="time" id="newAlarm">
+    <button onclick="createAlarm()">Create Alarm</button>
+
+     <!-- Get a specific alarm -->
+     <h2>Get a specific alarm</h2>
+     <input type="number" id="getAlarmId" placeholder="alarmId">
+     <button onclick="getAlarm()">Get Alarm</button>
+     <p id="specificAlarm"></p>
+
+    <!-- Get all alarms -->
+    <h2>Get all alarms</h2>
+    <button onclick="getAllAlarms()">Get All Alarms</button>
+    <ul id="allAlarms"></ul>
+
+    <!-- Edit an alarm -->
+    <h2>Edit an alarm</h2>
+    <input type="number" id="editAlarmId" placeholder="alarmId">
+    <input type="time" id="editedAlarmTime">
+    <button onclick="editAlarm()">Edit Alarm</button>
+
+    <!-- Delete an alarm -->
+    <h2>Delete an alarm</h2>
+    <input type="number" id="deleteAlarmId" placeholder="alarmId">
+    <button onclick="deleteAlarm()">Delete Alarm</button>
+   
+    
+</body>
+</html>
