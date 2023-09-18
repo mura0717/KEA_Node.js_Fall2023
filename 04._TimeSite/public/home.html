@@ -54,10 +54,53 @@
     <h2>Delete an alarm</h2>
     <input type="number" id="deleteAlarmId" placeholder="Alarm Id">
     <button onclick="deleteAlarm()">Delete Alarm</button>
+
+
    
 </body>
 
 <script>
+
+    function playAlarm(time){
+
+        const maxPlayTime = 10000; //Alarm duration: 10 sec.
+        const dateObject = new Date();
+
+        let beep = new Audio('https://www.soundjay.com/buttons/sounds/beep-07a.mp3');
+        beep.loop = true;
+        setTimeout(() => {
+            beep.play();
+            setTimeout(() => { //stopping the alarm and resetting.
+                beep.pause();
+                //beep.currentTime = 0;
+            }, maxPlayTime);
+        }, time);
+    }
+
+    function alarmHoursConverter(alarm){
+        const alarmDetails = alarm;
+        const [hours, minutes] = alarmDetails.split(":").map(Number);
+
+        const hoursInMilliseconds = hours * 3600000; // 1 hour = 3600000 milliseconds
+        const minutesInMilliseconds = minutes * 60000;
+
+        return hoursInMilliseconds+minutesInMilliseconds;
+    }
+
+    function currentHoursConverter(){
+
+        const newDateObject = new Date();
+        const currentHours = newDateObject.getHours();
+        //console.log(currentHours);
+        const currentMinutes = newDateObject.getMinutes();
+        //console.log(currentMinutes);
+
+        const currentHoursInMilliseconds = currentHours * 3600000; // 1 hour = 3600000 milliseconds
+        const currentMinutesInMilliseconds = currentMinutes * 60000;
+
+        return currentHoursInMilliseconds + currentMinutesInMilliseconds;
+
+    }
 
     async function createAlarm() {
         const newAlarm = document.getElementById("newAlarm").value;
@@ -76,6 +119,11 @@
         })
         const data = await res.json();
         alert(`Alarm created with Id: ${data.data.id} and time: ${data.data.alarm}`);
+
+        const alarmTime = alarmHoursConverter(newAlarm);
+        const currentTime = currentHoursConverter();
+        const timeDelay = alarmTime - currentTime; 
+        playAlarm(timeDelay);
     }
     
 
