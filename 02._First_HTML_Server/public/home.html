@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
      <!-- solution 3: link -->
-    <!-- <link rel="stylesheet" href="home.css"> -->
+    <link rel="stylesheet" href="./home.css">
     <!-- solution 2: in file -->
     <style> 
-        #title {
+      /*   #title {
             color: red;
-        }
+        } */
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,26 +17,16 @@
     <!-- Inline Styling -->
     <!-- <h1 style="color:red">Home</h1>  -->
     <h1 id="title">Home</h1>
-    <h2>This can be deployed via Vercel.</h2>
+    
+    <h2>This can be deployed by Vercel.</h2>
+    
     <h3 id="welcomeMessage"></h3>
+    <!-- Linkt to Second page -->
+    <a href="./secondPage.html">Second Page</a>
    
     <!-- assignment: create a console log in the console "hello" a second after the client visits the frontpage --> 
-    <script>
-
-        // asignment: personalize the message
-        fetch('welcomeMessage?user=Kaan')
-        .then((response) => response.json())
-        .then((result) => {
-            const welcomeMessageHeader = document.getElementById("welcomeMessage");
-            welcomeMessageHeader.innerText = result.data; //prints on the page.
-            console.log(result.data); //logs into console in browser
-        });
-   
+    <script src="./home.js"></script>
 
 
-/*         setTimeout(() => {
-            console.log("hello");
-        }, 1000); */
-    </script>
 </body>
 </html>

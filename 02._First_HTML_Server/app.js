@@ -1,8 +1,12 @@
 const express = require("express");
 const app = express ();
 
-//console.log (__dirname);
+app.use(express.static("public"));
 
+const welcomeMessageUtil = require("./util/welcomeMessage.js")
+
+
+//console.log (__dirname);
 // assignment: Create a route for the endpoint
 
 app.get("/", (req, res) => {
@@ -18,12 +22,11 @@ app.get("/secondPage", (req, res) => {
 //=====================================================
 
 app.get("/welcomeMessage", (req, res) => {
-    const userName = req.query.user;
-    if (!userName) {
-        res.send({ data: "Hello Stranger"})
-    } else {
-        res.send({ data: `Welcome to the site, ${userName}!`});
-    }
+    const clientName = req.query.user;
+    const welcomeMessage = welcomeMessageUtil.getWelcomeMessage(clientName)
+    //const welcomeMessage = welcomeMessageUtil.name;
+    // console.log(welcomeMessage) //Sebastian
+    res.send({data : welcomeMessage})
 })
 
 //=====================================================
