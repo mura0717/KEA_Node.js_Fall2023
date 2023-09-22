@@ -1,7 +1,8 @@
 const express = require("express")
 const app = express();
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public/'));
+
 
 //alarms array
 let alarms = []
@@ -10,7 +11,7 @@ let currentId = 0;
 
 //homepage
 app.get("/", (req, res) => {
-    res.sendFile(__dirname +"/public/home.html");
+    res.sendFile(__dirname + "/public/home.html");
 });
 
 //get all alarms
