@@ -1,0 +1,14 @@
+.blink {
+    animation: blinker 1s linear infinite;
+    background:red;
+    color:white;
+    width: 280px;
+    font-size: xx-large;
+    font-weight:bold;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
