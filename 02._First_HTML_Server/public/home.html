@@ -9,6 +9,7 @@
             color: red;
         } */
     </style>
+    <!-- <meta http-equiv="refresh" content="3"; url="./secondPage.html"=> --><!-- also redirects -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title> <!-- TabTitle -->
@@ -26,6 +27,13 @@
    
     <!-- assignment: create a console log in the console "hello" a second after the client visits the frontpage --> 
     <script src="./home.js"></script>
+    
+    <!-- assignment: redirect to secondpage after 3 seconds.-->
+    <script>
+        setTimeout(()=> window.location.href = "/secondPage", 3000);
+        //setTimeout(() => window.location.replace("/secondPage"), 3000);
+    </script>
+
 
 
 </body>
