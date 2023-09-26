@@ -4,10 +4,15 @@ const app = express();
 app.use(express.json());
 app.use(express.static(__dirname + '/public/'));
 
-//homepage
+//index
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/index.html")
+    res.sendFile(__dirname + "/public/index/index.html")
 })
+
+//sidebar
+app.get("/sidebar", (req, res) => {
+    res.sendFile(__dirname + "/public/sidebar/sidebar.html");
+});
 
 //connection
 const PORT = 8080;
