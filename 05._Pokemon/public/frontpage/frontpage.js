@@ -30,11 +30,14 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${randomPokemonId}`)
     console.log(result.name);
     //assigment: capitalize the name of the pokemon.
     nameHeader.innerText = result.name.charAt(0).toUpperCase() + result.name.slice(1); //against Cross-Site Scripting (instead of innerHTML)
-
+    //pokemon image from pokemon API
     const imageWrapperDiv = document.getElementById("image-wrapper");
     imageWrapperDiv.innerHTML = `
     <img src= ${result.sprites.other.home.front_default}>`
+
 });
+
+
 
 
 

@@ -36,6 +36,12 @@ app.get("/doorman/:key", (req, res) => {
     res.send({ data: "You have not provided the correct key" })
 });
 
+app.get("/proxyserver", (req, res) => {
+    fetch('http://www.google.com')
+    .then((response) => response.text())
+    .then((result) => res.send(result));
+});
+
 //=====================================================
 
 const PORT = 8080;

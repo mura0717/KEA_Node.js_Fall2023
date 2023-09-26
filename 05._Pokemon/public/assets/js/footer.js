@@ -1,0 +1,1 @@
+document.getElementById("copyright").innerHTML = `©${new Date().getFullYear()} - All Rights Reserved`;
