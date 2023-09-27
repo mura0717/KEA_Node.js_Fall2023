@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+</head>
+<body>
+    <h1>Basic Git Commands</h1>
+
+    <div>
+        <div>Install NodeJS</div>
+        <pre><code>
+            sudo apt-get install -y nodejs
+            
+            apt-get install -y nodejs
+        </code></pre>
+        <div>Check NodeJS Version</div>
+        <pre><code>
+            node -v
+            
+            npm -v
+        </code></pre>
+        <div>Install & Uninstall a Package</div>
+        <pre><code>
+            npm install &ltpackage>
+
+            npm uninstall &ltpackage>
+        </code></pre>
+        <div>Create an Empty 'npm' Project & Initialize a New 'package.json' File</div>
+        <pre><code>
+            npm init -y 
+            {
+              "name": "",
+              "version": "",
+              "description": "",
+              "main": "",
+              "scripts": {
+                "test": "echo \"Error: no test specified\" && exit 1"
+              },
+              "keywords": [],
+              "author": "",
+              "license": "",
+              "dependencies": {}
+            }
+        </code></pre>
+        <div>List Modules Locally & Globally</div>
+        <pre><code>
+            npm ls
+
+            npm ls -g
+        </code></pre>
+        <div>Run Node.js script</div>
+        <pre><code>
+            node &ltapp_file>
+        </code></pre>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

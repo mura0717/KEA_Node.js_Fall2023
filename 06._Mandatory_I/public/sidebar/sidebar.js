@@ -1,5 +1,5 @@
     // Fetch sidebar
-    fetch('sidebar.html')
+    fetch('../../sidebar/sidebar.html')
         .then(response => response.text())
         .then(result => {
             document.getElementById('sidebar-container').innerHTML = result

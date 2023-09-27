@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <title>Vars&Types</title>
+</head>
+<body>
+    <h2>Javascript Variables are Containers for Storing Data</h2>
+    <h3>There are 3 types in creating data:</h3>
+    <ul>
+        <li>
+            var: For older browsers (The 'var' keywords was used from 1995-2015).
+        </li>
+        <li>
+            let: For data that can change. (Only use when 'const' can't be used.)
+        </li>
+        <li>
+            const: For values that won't change.
+        </li>
+    </ul>
+    <h3>Example: var</h3>
+        <pre><code>
+            var x = 5;
+            var y = 6;
+            var z = x + y;
+        </code></pre>
+    <h3>Example: let</h3>
+
+        <pre><code>
+            let x = 5;
+            let y = 6;
+            let z = x + y;
+        </code></pre>
+
+    <h3>Example: const</h3>
+        <pre><code>
+            const x = 5;
+            const y = 6;
+            const z = x + y;
+        </code></pre>
+
+    <h2>Javascript has 8 Datatypes</h2>
+    <ul>
+        <li>
+            String
+        </li>
+        <li>
+            Number
+        </li>
+        <li>
+            Bigint
+        </li>
+        <li>
+            Boolean
+        </li>
+        <li>
+            Undefined
+        </li>
+        <li>
+            Null
+        </li>
+        <li>
+            Symbol
+        </li>
+        <li>
+            Object (Object/Array/Date)
+        </li>
+    </ul>
+
+    <h3>Examples:</h3>
+        <pre><code>
+            // Numbers:
+            let length = 16;
+            let weight = 7.5;
+
+            // Strings:
+            let color = "Yellow";
+            let lastName = "Johnson";
+
+            // Booleans
+            let x = true;
+            let y = false;
+
+            // Object:
+            const person = {firstName:"John", lastName:"Doe"};
+
+            // Array object:
+            const cars = ["Saab", "Volvo", "BMW"];
+
+            // Date object:
+            const date = new Date("2022-03-25");
+        </code></pre>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+<footer>
+    References: <br>
+    W3schools.com. (2019). JavaScript Variables. [online] Available at: https://www.w3schools.com/js/js_variables.asp. <br>
+    W3schools.com. (2020). JavaScript Data Types. [online] Available at: https://www.w3schools.com/js/js_datatypes.asp.
+</footer>
+</html>

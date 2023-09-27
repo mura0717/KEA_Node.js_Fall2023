@@ -1,5 +1,5 @@
-.wrapper {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
+#index-image {
+    align-items: baseline;
+    width: 120vh;
+    height: 80vh;
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <title>Vars&Types</title>
+</head>
+<body>
+    <h1>RestAPI URI Naming Conventions</h1>
+    <div>
+        In REST, the primary data representation is called resource. 
+        Having a consistent and robust REST resource naming strategy 
+        will prove one of the best design decisions in the long term.
+
+        A resource can be a singleton or a collection. 
+        For example, "customers" is a collection resource and a "customer" is a singleton resource.
+    </div>
+
+    <h3>Here is example of a RestAPI Design:</h3>
+    <pre><code>
+        GET     /customers
+        GET     /customers/{id} 
+        POST    /customers
+        PATCH   /customers/{id}
+        PUT     /customers/{id}
+        DELETE  /customers/{id}
+    </code></pre>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+<footer>
+    References: <br>
+    Gupta, L. (2018). REST API - URL Naming Conventions. [online] REST API Tutorial. Available at: https://restfulapi.net/resource-naming/.
+</footer>
+</html>

@@ -14,6 +14,33 @@ app.get("/sidebar", (req, res) => {
     res.sendFile(__dirname + "/public/sidebar/sidebar.html");
 });
 
+//Week1
+app.get("/nodeJS", (req, res) => {
+    res.sendFile(__dirname + "/public/week1/nodeJS/nodeJS.html")
+})
+
+app.get("/variables_datatypes", (req, res) => {
+    res.sendFile(__dirname + "/public/week1/variables_datatypes/variables_datatypes.html")
+})
+
+app.get("/clean_code", (req, res) => {
+    res.sendFile(__dirname + "/public/week1/clean_code/clean_code.html")
+})
+
+app.get("/git_commands", (req, res) => {
+    res.sendFile(__dirname + "/public/week1/git_commands/git_commands.html")
+})
+
+//Week2
+
+app.get("/restAPI_conventions", (req, res) => {
+    res.sendFile(__dirname + "/public/week2/restAPI_conventions/restAPI_conventions.html")
+})
+
+app.get("/functions", (req, res) => {
+    res.sendFile(__dirname + "/public/week2/functions_folder/functions.html")
+})
+
 //connection
 const PORT = 8080;
 app.listen(PORT, (error) => {
