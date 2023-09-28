@@ -1,5 +1,18 @@
 .page-header {
-    font-family:'Courier New', Courier, monospace;
+    font-family:'Courier New', Courier;
     font-weight: bold;
+}
+
+.page-content {
+    font-family:'Courier New', Courier;
+}
+
+footer {
+    position:-ms-page;
+    font-family: 'Verdana', Verdana;
+}
+
+.snippet {
+    
 }
 

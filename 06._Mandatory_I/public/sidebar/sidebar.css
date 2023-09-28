@@ -3,3 +3,8 @@
     width: 100%;
     align-items: stretch;
 }
+
+.sidebar-header {
+    color: rgba(0, 0, 0, .85);
+}
+
