@@ -41,6 +41,14 @@ app.get("/functions", (req, res) => {
     res.sendFile(__dirname + "/public/week2/functions_folder/functions.html")
 })
 
+app.get("/express", (req, res) => {
+    res.sendFile(__dirname + "/public/week2/express/express.html")
+})
+
+app.get("/package.json", (req, res) => {
+    res.sendFile(__dirname + "/public/week2/packageJSON/package.json.html")
+})
+
 //connection
 const PORT = 8080;
 app.listen(PORT, (error) => {

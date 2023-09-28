@@ -1,15 +1,14 @@
 .page-header {
-    font-family:'Courier New', Courier;
+    font-family:'Courier New';
     font-weight: bold;
 }
 
 .page-content {
-    font-family:'Courier New', Courier;
+    font-family:'Courier New';
 }
 
 footer {
-    position:-ms-page;
-    font-family: 'Verdana', Verdana;
+    font-family:'Times New Roman';
 }
 
 .snippet {

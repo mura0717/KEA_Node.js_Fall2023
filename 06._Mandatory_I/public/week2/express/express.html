@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,11 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/global.css">
     <link rel="stylesheet" href="/sidebar/sidebar.css">
-    <title>RestAPI</title>
+    <link rel="stylesheet" href="./express.css">
+    <title>Express</title>
+
 </head>
+
 <body>
     <div class="wrapper">
         <div class="d-flex">
@@ -20,37 +24,32 @@
             <!-- Page Content -->
             <main>
                 <div class="page-header">
-                    <h1>RestAPI URI Naming Conventions</h1>
+                    <h1>ExpressJS</h1>
                 </div>
 
                 <div class="page-content">
-                <p>
-                In REST, the primary data representation is called resource. 
-                Having a consistent and robust REST resource naming strategy 
-                will prove one of the best design decisions in the long term.
+                    <p>
+                        Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+                    </p>
 
-                A resource can be a singleton or a collection.
-                <p>For example, "customers" is a collection resource and a "customer" is a singleton resource.</p>
-                </p>
+                    <img id="express-image" src="https://res.cloudinary.com/practicaldev/image/fetch/s--YbV36HLj--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/hpg6if7btrwilqkidqbe.png" alt="">
 
-                <h4>Example of a RestAPI Design:</h4>
-                <pre><code>
-                    GET     /customers
-                    GET     /customers/{id} 
-                    POST    /customers
-                    PATCH   /customers/{id}
-                    PUT     /customers/{id}
-                    DELETE  /customers/{id}
-                </code></pre>
-                <footer>
-                    References: <br>
-                    Gupta, L. (2018). REST API - URL Naming Conventions. [online] REST API Tutorial. Available at: https://restfulapi.net/resource-naming/.
-                </footer>
+                    <p>Install Express:</p>
+                    <pre><code>
+                    $ npm install express
+                    </code></pre>
+
+                        <footer>
+                            References: <br>
+                            OpenJS Foundation (2017). Express - Node.js web application framework. [online] Expressjs.com. Available at: https://expressjs.com/.
+                        </footer>
+                    </div>
                 </div>
             </main>
-        </div>
+         </div>
     </div>
-
+    
+    <!-- Scripts -->
     <script src="/sidebar/sidebar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
