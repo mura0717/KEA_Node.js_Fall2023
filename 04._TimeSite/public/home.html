@@ -9,7 +9,11 @@
 </head>
 <body>
 
-    <img src="https://media2.giphy.com/media/oFfNvh4r621WxqrzZb/giphy.gif?cid=ecf05e47g6dg8hly26ose7s9339pr2h6arrwvzre8s1um1t1&ep=v1_gifs_search&rid=giphy.gif&ct=g" style="float: right;">
+    <img src="https://media2.giphy.com/media/oFfNvh4r621WxqrzZb/giphy.gif?cid=ecf05e47g6dg8hly26ose7s9339pr2h6arrwvzre8s1um1t1&ep=v1_gifs_search&rid=giphy.gif&ct=g" style="float: right; padding-right: 2em; padding-top: 2em;">
+    
+    
+<main style="align-items: center; padding-left: 2em; padding-top: 2em;">
+
     <div class="blink">Alarm Alarm Alarm</div>
 
     <!-- Create a new alarm -->
@@ -19,7 +23,7 @@
 
      <!-- Get a specific alarm -->
      <h2>Get a specific alarm</h2>
-     <input type="number" id="getAlarmId" placeholder="Alarm Id">
+     <input type="number" id="getAlarmId" placeholder="Alarm Id" min="1">
      <button onclick="getAlarm()">Get Alarm</button>
      <div id="specificAlarm"></div>
 
@@ -39,7 +43,7 @@
     <input type="number" id="deleteAlarmId" placeholder="Alarm Id">
     <button onclick="deleteAlarm()">Delete Alarm</button>
 
-
+</main>
    
 </body>
 
