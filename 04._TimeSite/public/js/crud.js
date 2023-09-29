@@ -1,7 +1,6 @@
 function playAlarm(time){
 
     const maxPlayTime = 10000; //Alarm duration: 10 sec.
-    const dateObject = new Date();
 
     let beep = new Audio('https://www.soundjay.com/buttons/sounds/beep-07a.mp3');
     beep.loop = true;
@@ -9,7 +8,6 @@ function playAlarm(time){
         beep.play();
         setTimeout(() => { //stopping the alarm and resetting.
             beep.pause();
-            //beep.currentTime = 0;
         }, maxPlayTime);
     }, time);
 }
@@ -28,9 +26,7 @@ function currentHoursConverter(){
 
     const newDateObject = new Date();
     const currentHours = newDateObject.getHours();
-    //console.log(currentHours);
     const currentMinutes = newDateObject.getMinutes();
-    //console.log(currentMinutes);
 
     const currentHoursInMilliseconds = currentHours * 3600000; // 1 hour = 3600000 milliseconds
     const currentMinutesInMilliseconds = currentMinutes * 60000;
