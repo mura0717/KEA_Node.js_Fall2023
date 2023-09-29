@@ -49,6 +49,10 @@ app.get("/package.json", (req, res) => {
     res.sendFile(__dirname + "/public/week2/packageJSON/package.json.html")
 })
 
+app.get("/node_modules", (req, res) => {
+    res.sendFile(__dirname + "/public/week2/nodeModules/node_modules.html")
+})
+
 //connection
 const PORT = 8080;
 app.listen(PORT, (error) => {
