@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/sidebar/sidebar.css">
+    <title>JSLoops</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="d-flex">
+
+            <!-- Sidebar -->
+            <div id="sidebar-container"></div>
+
+            <!-- Page Content -->
+            <main class="mx-auto p-5">
+                <div class="page-header">
+                    <h1>JavaScript Loops</h1>
+                </div>
+
+                <div class="page-content">
+                    <p>Loops can execute a block of code a number of times.</p>
+                    <h4>Types of Loops:</h4>
+                    <ul>
+                        <li>
+                            <p>FOR - loops through a block of code a number of times.</p>
+                        </li>
+                        <pre><code>
+                            for (let i = 0; i < 5; i++) {
+                                text += "The number is " + i + "<br>";
+                              }
+                        </code></pre>
+                        <li>
+                            <p>FOR/IN - loops through the properties of an object.</p>
+                        </li>
+                        <pre><code>
+                            const numbers = [45, 4, 9, 16, 25];
+
+                            let txt = "";
+                            for (let x in numbers) {
+                              txt += numbers[x];
+                            }
+                        </code></pre>
+                        <li>
+                            <p>FOR/OF - loops through the values of an iterable object.</p>
+                        <pre><code>
+                            const cars = ["BMW", "Volvo", "Mini"];
+
+                            let text = "";
+                            for (let x of cars) {
+                                text += x;
+                            }
+                        </code></pre>
+                        </li>
+                        <li>
+                            <p>WHILE - loops through a block of code while a specified condition is true.</p>
+                        <pre><code>
+                            while (i < 10) {
+                                text += "The number is " + i;
+                                i++;
+                              }
+                        </code></pre>
+                        </li>
+                        <li>
+                            <p>DO/WHILE - also loops through a block of code while a specified condition is true.</p>
+                        <pre><code>
+                            do {
+                                text += "The number is " + i;
+                                i++;
+                              }
+                              while (i < 10);
+                        </code></pre>
+                        </li>
+                    </ul>
+                </div>
+                <footer>
+                    References: <br>
+                    W3Schools (2019). JavaScript for Loop. [online] W3schools.com. Available at: https://www.w3schools.com/js/js_loop_for.asp.
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <script src="/sidebar/sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

@@ -53,6 +53,15 @@ app.get("/node_modules", (req, res) => {
     res.sendFile(__dirname + "/public/week2/nodeModules/node_modules.html")
 })
 
+//Week3
+app.get("/url_anatomy", (req, res) => {
+    res.sendFile(__dirname + "/public/week3/url_anatomy/url_anatomy.html")
+})
+
+app.get("/loops_js", (req, res) => {
+    res.sendFile(__dirname + "/public/week3/loops_js/loops_js.html")
+})
+
 //connection
 const PORT = 8080;
 app.listen(PORT, (error) => {

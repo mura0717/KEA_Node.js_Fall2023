@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/sidebar/sidebar.css">
+    <title>URL</title>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="d-flex">
+
+            <!-- Sidebar -->
+            <div id="sidebar-container"></div>
+
+            <!-- Page Content -->
+            <main class="mx-auto p-5">
+                <div class="page-header">
+                    <h1>What is an URL?</h1>
+                </div>
+
+                <div class="page-content">
+                    <p>
+                        A URL (Uniform Resource Locator) is a unique identifier used to locate a resource on the Internet.
+                    </p>
+
+                    <h3>Parts of URL:</h3>
+                    <pre><code>
+    {
+        "example url" : "https://video.google.co.uk:80/videoplay?docid=-7234293487129834&hl=en#00h02m30s",
+        "protocol" : {
+            "section" : "https://",
+            "description" : "The first part of a URL that represents the sets of rules 
+            that decide how files are displayed, formatted, or transferred across the web."
+        },
+        "subdomain" : {
+            "section" : "video",
+            "description" : "A subdomain is a subdivision of the main domain name."
+        },
+        "domain" : {
+            "section" : "google",
+            "description" : "The actual name of the website."
+        },
+        "top-level domain" : {
+            "section" : "com",
+            "description" : "The domain extension."
+        },
+        "port" : {
+            "section" : "80",
+            "description" : "A reserved channel used for specific purposes."
+        },
+        "path" : {
+            "section" : "videoplay",
+            "description" : "The path is used to show which directory on server 
+            stores the resources that are being requested."
+        },
+        "query" : {
+            "section" : "?",
+            "description" : "The question mark tell the browser that a query is
+            being performed against a database where the data is stored."                    
+        },
+        "parameters" : {
+            "section" : "docid=-7234293487129834&hl=en",
+            "description" : "The actual values being queried when a search is performed."
+        },
+        "fragement" : {
+            "section" : "#00h02m30s",
+            "description" : "An optional component of a web address that is preceded by 
+            a hash and that directs to a secondary resources."
+        }
+    }
+                    </code></pre>
+                </div>
+                <footer>
+                    References: <br>
+                    Pyram, J. (2020). 9 Parts of a URL That You Should Know. [online] Medium. Available at: https://medium.com/@joseph.pyram/9-parts-of-a-url-that-you-should-know-89fea8e11713. <br>
+                    SearchNetworking. (n.d.). What is a URL (Uniform Resource Locator)? [online] Available at: https://www.techtarget.com/searchnetworking/definition/URL.
+                </footer>
+            
+            </main>
+         </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/sidebar/sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>
