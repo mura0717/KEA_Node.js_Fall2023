@@ -1,14 +1,14 @@
 .page-header {
-    font-family:'Papyrus';
+    font-family:'Papyrus', sans-serif;
     font-weight: bold;
 }
 
 .page-content {
-    font-family:'Papyrus';
+    font-family:'Papyrus', sans-serif;
 }
 
 footer {
-    font-family:'';
+    font-family:'Times New Roman', sans-serif;
     margin-top:2em;
 }
 

@@ -96,10 +96,13 @@ app.get("/xss", (req, res) => {
     res.sendFile(__dirname + "/public/week5/xss/xss.html")
 })
 
+//Week6
+
 //Login
  app.get("/login", (req, res) => {
     res.sendFile(__dirname + "/public/login/login.html")
-}) 
+})
+
 
 //connection
 const PORT = 8080;
