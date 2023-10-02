@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/sidebar/sidebar.css">
+    <title>CommonJSvsES</title>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="d-flex">
+
+            <!-- Sidebar -->
+            <div id="sidebar-container"></div>
+
+            <!-- Page Content -->
+            <main class="mx-auto p-5">
+                <div class="page-header">
+                    <h1>CommonJS vs. ES Modules</h1>
+                </div>
+
+                <div class="page-content">
+                    <h3>CommonJS</h3>
+                    <p> 
+                        CommonJS is an older module system for JavaScript that was designed for server-side JavaScript development with Node.js. <br>
+                        CommonJS modules work by using require statements to load dependencies, and module.exports statements to define the exports of a module.
+                    </p>
+
+                    <h4>Here's an example of using CommonJS modules:</h4>
+                    <pre><code>
+                        // my-module.js
+                        module.exports = {
+                        myValue: 42
+                        };
+
+                        // main.js
+                        const myModule = require('./my-module.js');
+                        console.log(myModule.myValue); // 42
+                    </code></pre>
+
+                    <h3>ES Modules</h3>
+                    <p>
+                        The ES module format is the official standard format to package JavaScript code for reuse and most modern web browsers natively support the modules. <br>
+                        ES modules allow developers to define exports (the values or functions they want to make available to other parts of their code), and import them into other parts of their code.
+                    </p>
+                    <h4>Here's an example of using ES modules:</h4>
+                    <pre><code>
+                        // my-module.js
+                        export const myValue = 42;
+
+                        // main.js
+                        import { myValue } from './my-module.js';
+                        console.log(myValue); // 42      
+                    </code></pre>
+                </div>
+                <footer>
+                    References: <br>
+                    Costa, M. (2023). ES Modules and CommonJS: An Overview. [online] DEV Community. Available at: https://dev.to/costamatheus97/es-modules-and-commonjs-an-overview-1i4b [Accessed 2 Oct. 2023].
+                </footer>
+            
+            </main>
+         </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/sidebar/sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

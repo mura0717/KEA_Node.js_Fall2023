@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/sidebar/sidebar.css">
+    <title>ServingHTML</title>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="d-flex">
+
+            <!-- Sidebar -->
+            <div id="sidebar-container"></div>
+
+            <!-- Page Content -->
+            <main class="mx-auto p-5">
+                <div class="page-header">
+                    <h1>Serving HTML in Express</h1>
+                </div>
+
+                <div class="page-content">
+                    <p>
+                        In Node.js and Express applications, res.sendFile() can be used to deliver files. <br>
+                        Delivering HTML files using Express can be useful when you need a solution for serving static pages.
+                    </p>
+
+                    <h4>An Example Set-Up:</h4>
+                    <pre><code>
+                        const express = require("express");
+                        const app = express();
+
+                        app.use(express.static("public"));
+
+                        const PORT = 8080;
+                        app.listen(port);
+                        
+                        // sendFile will go here:
+
+                        app.get('/', function(req, res) {
+                            res.sendFile(path.join(__dirname, '/index.html'));
+                          });
+                    </code></pre>
+
+                    <h4>Serving Static Files in Express:</h4>
+                    <p>To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.</p>
+                    <pre><code>
+                        express.static(root, [options])
+                    </code></pre>
+                    <p>The root argument specifies the root directory from which to serve static assets. For more information on the options argument, see express.static.</p>
+                    <p>For example:</p>
+                    <pre><code>
+                        app.use(express.static('public'))
+                    </code></pre>
+                    <p>To create a virtual path prefix for files that are served by the express.static function, specify a mount path for the static directory:</p>
+                    <pre><code>
+                        const path = require('path')
+                        app.use('/static', express.static(path.join(__dirname, 'public')))
+                    </code></pre>
+                </div>
+                <footer>
+                    References: <br>
+                    Sey, C. (2020). Use ExpressJS to Deliver HTML Files. [online] DigitalOcean. Available at: https://www.digitalocean.com/community/tutorials/use-expressjs-to-deliver-html-files [Accessed 2 Oct. 2023]. <br>
+                    expressjs.com. (n.d.). Serving static files in Express. [online] Available at: https://expressjs.com/en/starter/static-files.html [Accessed 2 Oct. 2023].
+                 </footer>
+            
+            </main>
+         </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/sidebar/sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>

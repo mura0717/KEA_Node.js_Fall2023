@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/sidebar/sidebar.css">
+    <link rel="stylesheet" href="./XSS.css">
+    <title>XSS</title>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="d-flex">
+
+            <!-- Sidebar -->
+            <div id="sidebar-container"></div>
+
+            <!-- Page Content -->
+            <main class="mx-auto p-5">
+                <div class="page-header">
+                    <h1>Cross-Site Scripting</h1>
+                </div>
+
+                <div class="page-content">
+                    <p>
+                        Cross-site Scripting (XSS) is a client-side code injection attack.  <br>
+                        The attacker aims to execute malicious scripts in a web browser of the victim by including malicious code in a legitimate web page or web application.
+                    </p>
+
+
+                    <h3>Types of XSS:</h3>
+                    <ul>
+                        <li>
+                            Reflected XSS, where the malicious script comes from the current HTTP request.
+                        </li>
+                        <li>
+                            Stored XSS, where the malicious script comes from the website's database. 
+                        </li>
+                        <li>
+                            DOM-based XSS, where the vulnerability exists in client-side code rather than
+                        </li>
+                    </ul>
+
+                    <h3>How Cross-Site Scripting Works:</h3>
+                    <p>
+                        Cross-site scripting works by manipulating a vulnerable web site so that it returns malicious JavaScript to users. <br>
+                        When the malicious code executes inside a victim's browser, the attacker can fully compromise their interaction with the application.
+                    </p>
+                    
+                    <img id="xss-image" src="https://cdn.acunetix.com/wp-content/uploads/2012/10/11105543/how-xss-works-1024x454.png" class="img-fluid" alt="">
+
+                    <br><br><br>
+                    <h3>How to Avoid it?</h3>
+                    <p>
+                        Allowing "safe" HTML by trying to filter out potentially harmful tags and JavaScript. <br>
+                        You can try to implement this using a whitelist of safe tags and attributes. <br>
+                        By using a JS library, such as '<strong>DOMpurify</strong>', which strips out everything that contains dangerous HTML, and returns a string with clean HTML.
+                    </p>
+                        
+                </div>
+                <footer>
+                    References: <br>
+                    portswigger.net. (n.d.). What is cross-site scripting (XSS) and how to prevent it? | Web Security Academy. [online] Available at: https://portswigger.net/web-security/cross-site-scripting#how-does-xss-work [Accessed 2 Oct. 2023].
+                </footer>
+            </main>
+         </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/sidebar/sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

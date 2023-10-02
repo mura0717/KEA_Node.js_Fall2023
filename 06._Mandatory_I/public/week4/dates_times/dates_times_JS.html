@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/sidebar/sidebar.css">
+    <title>Dates</title>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="d-flex">
+
+            <!-- Sidebar -->
+            <div id="sidebar-container"></div>
+
+            <!-- Page Content -->
+            <main class="mx-auto p-5">
+                <div class="page-header">
+                    <h1>JS Dates</h1>
+                </div>
+
+                <div class="page-content">
+                    <p>
+                        JavaScript Date Objects let us work with dates. <br>
+                        By default, JavaScript will use the browser's time zone and display a date as a full text string:
+                    </p>
+
+                    <p style="font-weight: bold;">
+                        Mon Oct 02 2023 11:33:28 GMT+0200 (Central European Summer Time)
+                    </p>
+
+                    <h4>Creating Data Objects:</h4>
+                    <pre><code>
+                        // Date objects are created with the new Date() constructor.
+
+                        // There are 9 ways to create a new date object:
+                        
+                        new Date()
+                        new Date("date string")
+
+                        new Date(year,month)
+                        new Date(year,month,day)
+                        new Date(year,month,day,hours)
+                        new Date(year,month,day,hours,minutes)
+                        new Date(year,month,day,hours,minutes,seconds)
+                        new Date(year,month,day,hours,minutes,seconds,ms)
+
+                        new Date(milliseconds)
+                      
+                    </code></pre>
+
+                    <h4>JS Date Input:</h4>
+                    <pre><code>
+                        // ISO Date:
+                        const d = new Date("2015-03-25");
+
+                        // Short Date:
+                        const d = new Date("03/25/2015");
+
+                        // Long Date:
+                        const d = new Date("Mar 25 2015");
+                      
+                    </code></pre>
+                </div>
+                <footer>
+                    References: <br>
+                    www.w3schools.com. (n.d.). JavaScript Date Objects. [online] Available at: https://www.w3schools.com/js/js_dates.asp [Accessed 2 Oct. 2023].  
+                </footer>
+            
+            </main>
+         </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/sidebar/sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>
