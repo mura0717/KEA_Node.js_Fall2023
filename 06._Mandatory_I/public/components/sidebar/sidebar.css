@@ -1,15 +1,14 @@
 
-.sidebar-header {
-    font-size: xx-large;
-    color: rgba(0, 0, 0, .85);
-    text-decoration: none;
-   
-}
-
 #sidebar {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: normal;
 
 }
 
+.sidebar-header {
+    font-size: xx-large;
+    color: rgba(0, 0, 0, .85);
+    text-decoration: none;
+   
+}
 

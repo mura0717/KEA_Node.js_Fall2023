@@ -1,5 +1,5 @@
 
-    document.addEventListener('DOMContentLoaded', () => {
+/*     document.addEventListener('DOMContentLoaded', () => {
         
         const submitButton = document.getElementById("submit-button");
 
@@ -16,6 +16,6 @@
             document.getElementById("sidebar-logout-button").style.display = "none";
             window.location.href = "/";
         });
-    });
+    }); */
 
 
