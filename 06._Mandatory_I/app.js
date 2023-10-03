@@ -98,6 +98,10 @@ app.get("/xss", (req, res) => {
 
 //Week6
 
+app.get("/fetch_client_server", (req, res) => {
+    res.sendFile(__dirname + "/public/week6/fetch_client_server/fetch_client_server.html")
+})
+
 //Login
  app.get("/login", (req, res) => {
     res.sendFile(__dirname + "/public/login/login.html")
