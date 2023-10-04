@@ -1,0 +1,40 @@
+<div class="page-header">
+    <h1>Package.json</h1>
+</div>
+
+<div class="page-content">
+    <p>
+        A package.json is a JSON file that exists at the root of a Javascript/Node project. <br>
+        It holds metadata relevant to the project and it is used for managing the project's dependencies, scripts, version, etc.
+    </p>
+
+    <p>Example of package.json file:</p>
+    <pre><code>
+    {
+        "name": "my-nodejs-project",
+        "version": "1.0.0",
+        "description": "A sample Node.js project",
+        "main": "index.js",
+        "scripts": {
+            "start": "node index.js",
+            "test": "mocha tests/*.js"
+        },
+        "author": "Your Name",
+        "license": "MIT",
+        "dependencies": {
+            "express": "^4.17.1",
+        }
+    }
+    </code></pre>
+
+    <p>The following command will install the project dependencies once executed in the folder where package.json is located at.</p>
+    
+    <pre><code>
+        npm install
+    </code></pre>
+
+<p class="page-references">
+    References: <br>
+    The NodeSource Blog - Node.js Tutorials, Guides, and Updates. (2022). The Basics of Package.json. [online] Available at: https://nodesource.com/blog/the-basics-of-package-json/ [Accessed 28 Sep. 2023].
+</p>
+</div>

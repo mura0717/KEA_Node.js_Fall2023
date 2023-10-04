@@ -1,102 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="page-header">
+    <h1>Functions in JS</h1>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/global.css">
-    <link rel="stylesheet" href="/sidebar/sidebar.css">
-    <title>Functions</title>
+<div class="page-content">
+    <p>
+        A JavaScript function is a block of code designed to perform a particular task.
+    </p>
 
-</head>
-
-<body>
-    <div class="wrapper">
-        <div class="d-flex">
-
-            <!-- Sidebar -->
-            <div id="sidebar-container"></div>
-
-            <!-- Page Content -->
-            <main class="mx-auto p-5">
-                <div class="page-header">
-                    <h1>Functions in JS</h1>
-                </div>
-
-                <div class="page-content">
-                    <p>
-                        A JavaScript function is a block of code designed to perform a particular task.
-                    </p>
-
-                    <h3>Types of Functions:</h3>
-                    <div>
-                        <ul>
-                            <li>
-                                <p>Normal Functions: Functions that have an arguments object which you can access in the function:</p>
-                                <pre><code>
-                                function greet(){
-                                    console.log("Hello!")
-                                }
-                                </code></pre>
-                            </li>
-                            <li>
-                                <p> 
-                                Arrow Functions: Anonymous functions without a name and are not bound by an identifier. 
-                                They do not return any value and can be declared without the function keyword.
-                                </p>
-                                <pre><code>
-                                const greet = () => {
-                                    console.log( "Hello!" );
-                                }
-                                </code></pre>
-                            </li>
-                            <li>
-                                <p>Anonymous Functions: It is a function that does not have any name associated with it.</p>
-                                <pre><code>
-                                const greet = () => {
-                                    console.log("Hello!");
-                                };
-                                </code></pre>
-                            </li>
-                            <li>
-                                <p>Callback Functions: A callback is a function that is passed as an argument to another function, and is called after the main function has finished its execution. </p>
-                                <pre><code>
-                                function square(number, callback) {
-                                    const result = number * number;
-                                    callback(result); // Call the callback with the squared result
-                                    }
-                                    
-                                    function displayResult(value) {
-                                    console.log(`The result is: ${value}`);
-                                    }
-                                    
-                                    // Call the square function with a callback
-                                    square(5, displayResult);
-                                </code></pre>
-                            </li>
-                        </ul>
-                    </div>
-                    <footer>
-                        References: <br>
-                        GeeksforGeeks. (2018). Arrow functions in JavaScript. [online] Available at: https://www.geeksforgeeks.org/arrow-functions-in-javascript/ [Accessed 28 Sep. 2023]. <br>
-                        GeeksforGeeks. (2021). JavaScript Anonymous Functions. [online] Available at: https://www.geeksforgeeks.org/javascript-anonymous-functions/ [Accessed 28 Sep. 2023]. <br>
-                        W3schools.com. (n.d.). JavaScript Callbacks. [online] Available at: https://www.w3schools.com/js/js_callback.asp.
-                    </footer>
-                </div>
-            </main>
-         </div>
+    <h3>Types of Functions:</h3>
+    <div>
+        <ul>
+            <li>
+                <p>Normal Functions: Functions that have an arguments object which you can access in the function:</p>
+                <pre><code>
+                function greet(){
+                    console.log("Hello!")
+                }
+                </code></pre>
+            </li>
+            <li>
+                <p> 
+                Arrow Functions: Anonymous functions without a name and are not bound by an identifier. 
+                They do not return any value and can be declared without the function keyword.
+                </p>
+                <pre><code>
+                const greet = () => {
+                    console.log( "Hello!" );
+                }
+                </code></pre>
+            </li>
+            <li>
+                <p>Anonymous Functions: It is a function that does not have any name associated with it.</p>
+                <pre><code>
+                const greet = () => {
+                    console.log("Hello!");
+                };
+                </code></pre>
+            </li>
+            <li>
+                <p>Callback Functions: A callback is a function that is passed as an argument to another function, and is called after the main function has finished its execution. </p>
+                <pre><code>
+                function square(number, callback) {
+                    const result = number * number;
+                    callback(result); // Call the callback with the squared result
+                    }
+                    
+                    function displayResult(value) {
+                    console.log(`The result is: ${value}`);
+                    }
+                    
+                    // Call the square function with a callback
+                    square(5, displayResult);
+                </code></pre>
+            </li>
+        </ul>
     </div>
-      
-    <!-- Scripts -->
-    <script src="/sidebar/sidebar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-</body>
-
-</html>
+    <p class="page-references">
+        References: <br>
+        GeeksforGeeks. (2018). Arrow functions in JavaScript. [online] Available at: https://www.geeksforgeeks.org/arrow-functions-in-javascript/ [Accessed 28 Sep. 2023]. <br>
+        GeeksforGeeks. (2021). JavaScript Anonymous Functions. [online] Available at: https://www.geeksforgeeks.org/javascript-anonymous-functions/ [Accessed 28 Sep. 2023]. <br>
+        W3schools.com. (n.d.). JavaScript Callbacks. [online] Available at: https://www.w3schools.com/js/js_callback.asp.
+    </p>
+</div>

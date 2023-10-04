@@ -31,54 +31,48 @@ app.get("/clean_code", (req, res) => {
     res.send(pages.cleancodePage)
 })
 
-
-
-
 app.get("/variables_datatypes", (req, res) => {
     res.send(pages.variablesDataTypesPage)
 })
 
 
-
-
-
 //Week2
 
 app.get("/restAPI_conventions", (req, res) => {
-    res.sendFile(__dirname + "/public/week2/restAPI_conventions/restAPI_conventions.html")
+    res.send(pages.restAPIConventionsPage)
 })
 
 app.get("/functions", (req, res) => {
-    res.sendFile(__dirname + "/public/week2/functions_folder/functions.html")
+    res.send(pages.functionsPage)
 })
 
 app.get("/express", (req, res) => {
-    res.sendFile(__dirname + "/public/week2/express/express.html")
+    res.send(pages.expressPage)
 })
 
-app.get("/package.json", (req, res) => {
-    res.sendFile(__dirname + "/public/week2/packageJSON/package.json.html")
+app.get("/package_json", (req, res) => {
+    res.send(pages.packageJSONPage)
 })
 
 app.get("/node_modules", (req, res) => {
-    res.sendFile(__dirname + "/public/week2/nodeModules/node_modules.html")
+    res.send(pages.nodeModulesPage)
 })
 
 //Week3
 app.get("/url_anatomy", (req, res) => {
-    res.sendFile(__dirname + "/public/week3/url_anatomy/url_anatomy.html")
+    res.send(pages.urlAnatomyPage)
 })
 
 app.get("/loops_js", (req, res) => {
-    res.sendFile(__dirname + "/public/week3/loops_js/loops_js.html")
+    res.send(pages.loopsJSPage)
 })
 
-app.get("/servingExpress_inHtml", (req, res) => {
-    res.sendFile(__dirname + "/public/week3/servingExpress_inHtml/servingExpress_inHtml.html")
+app.get("/CRUDable_RestAPI", (req, res) => {
+    res.send(pages.crudableRestApiPage)
 })
 
-app.get("/servingExpress_inHtml", (req, res) => {
-    res.sendFile(__dirname + "/public/week3/servingExpress_inHtml/servingExpress_inHtml.html")
+app.get("/serving_express", (req, res) => {
+    res.send(pages.servingExpressPage)
 })
 
 //Week4

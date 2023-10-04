@@ -1,0 +1,48 @@
+<div class="page-header">
+    <h1>Serving HTML in Express</h1>
+</div>
+    <div class="page-content">
+        <p>
+            In Node.js and Express applications, res.sendFile() can be used to deliver files. <br>
+            Delivering HTML files using Express can be useful when you need a solution for serving static pages.
+        </p>
+
+        <h4>An Example Set-Up:</h4>
+        <pre><code>
+            const express = require("express");
+            const app = express();
+
+            app.use(express.static("public"));
+
+            const PORT = 8080;
+            app.listen(port);
+            
+            // sendFile will go here:
+
+            app.get('/', function(req, res) {
+                res.sendFile(path.join(__dirname, '/index.html'));
+                });
+        </code></pre>
+
+        <h4>Serving Static Files in Express:</h4>
+        <p>To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.</p>
+        <pre><code>
+            express.static(root, [options])
+        </code></pre>
+        <p>The root argument specifies the root directory from which to serve static assets. For more information on the options argument, see express.static.</p>
+        <p>For example:</p>
+        <pre><code>
+            app.use(express.static('public'))
+        </code></pre>
+        <p>To create a virtual path prefix for files that are served by the express.static function, specify a mount path for the static directory:</p>
+        <pre><code>
+            const path = require('path')
+            app.use('/static', express.static(path.join(__dirname, 'public')))
+        </code></pre>
+    
+    <p class="page-references">
+        References: <br>
+        Sey, C. (2020). Use ExpressJS to Deliver HTML Files. [online] DigitalOcean. Available at: https://www.digitalocean.com/community/tutorials/use-expressjs-to-deliver-html-files [Accessed 2 Oct. 2023]. <br>
+        expressjs.com. (n.d.). Serving static files in Express. [online] Available at: https://expressjs.com/en/starter/static-files.html [Accessed 2 Oct. 2023].
+    </p>
+</div>
