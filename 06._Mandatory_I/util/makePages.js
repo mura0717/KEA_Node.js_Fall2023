@@ -1,4 +1,4 @@
-import { readPage, renderPage } from "./templateEngine.js";
+import { readPage, renderAdminPage, renderPage } from "./templateEngine.js";
 
 
 //==========================LINKS & SCRIPTS==========================
@@ -11,7 +11,7 @@ const cleancodeCSS = `<link rel="stylesheet" href="/pages/week1/clean_code/clean
 const nodejsCSS = `<link rel="stylesheet" href="/pages/week1/node_js/node_js.css">`;
 const expressCSS = `<link rel="stylesheet" href="/pages/week2/express/express.css">`;
 const deploymentCSS = `<link rel="stylesheet" href="/pages/week4/deployment/deployment.css">`;
-const xssCSS = `<link rel="stylesheet" href="/pages/week5/XSS/XSS.css">`
+const xssCSS = `<link rel="stylesheet" href="/pages/week5/XSS/XSS.css">`;
 
 //CDN Links
 const bootstrapCDN = `<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">`;
@@ -19,8 +19,9 @@ const higlighterCDN = `<link rel="stylesheet" href="https://cdnjs.cloudflare.com
 
 //Scripts
 const sidebarJS = `<script src="/components/sidebar/sidebar.js"></script>`;
+const signupJS = `<script src="/pages/signup/signup.js"></script>`;
 const loginJS = `<script src="/pages/login/login.js"></script>`;
-const footerJS = `<script src="/components/footer/footer.js"></script>`
+const footerJS = `<script src="/components/footer/footer.js"></script>`;
 const bootstrapJS = `<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
 crossorigin="anonymous"></script>`;
@@ -39,6 +40,15 @@ export const indexPage = renderPage(index, {
     scripts: `${sidebarJS}${footerJS}${bootstrapJS}`
 });
 
+//signup
+const signup = readPage("./public/pages/signup/signup.html");
+export const signupPage = renderPage(signup, {
+    tabName: "Login",
+    cssLinks: `${globalCSS}${sidebarCSS}`,
+    cdnLinks: `${bootstrapCDN}`,
+    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${signupJS}`
+});
+
 //login
 const login = readPage("./public/pages/login/login.html");
 export const loginPage = renderPage(login, {
@@ -47,6 +57,10 @@ export const loginPage = renderPage(login, {
     cdnLinks: `${bootstrapCDN}`,
     scripts: `${sidebarJS}${footerJS}${bootstrapJS}${loginJS}`
 });
+
+//admin
+const admin = readPage("./public/pages/admin/admin.html");
+export const adminPage = renderAdminPage(admin);
 
 
 //Week1

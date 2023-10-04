@@ -1,21 +1,16 @@
+const savedUsername = localStorage.getItem("username");
+const savedPassword = localStorage.getItem("password");
 
-/*     document.addEventListener('DOMContentLoaded', () => {
-        
-        const submitButton = document.getElementById("submit-button");
+document.getElementById("inputUsername").value.setItem(savedUsername);
+document.getElementById("inputPassword").value.setItem(savedPassword);
 
-        submitButton.addEventListener("click", () => {
-            document.getElementById("sidebar-login-button").style.display = "none";
-            document.getElementById("sidebar-logout-button").style.display = "block";
-            window.location.href = "/";
-        });
-
-        const logoutButton = document.getElementById("sidebar-logout-button");
-    
-        logoutButton.addEventListener("click", () => {
-            document.getElementById("sidebar-login-button").style.display = "block";
-            document.getElementById("sidebar-logout-button").style.display = "none";
-            window.location.href = "/";
-        });
-    }); */
+submitLoginForm.addEventListener("submit", () => {
+    if (savedUsername == localStorage.getItem("username") && savedPassword == localStorage.getItem("password")){
+        window.location.href("/admin");
+    } else {
+        console.log("Error: Failed to fill out the form.");
+        return;
+    }
+})
 
 

@@ -16,3 +16,7 @@ export function renderPage(pageBody, config={}){
 
     return sidebar + pageBody + footer;
 }
+
+export function renderAdminPage(adminPageBody){
+    return adminPageBody;
+}

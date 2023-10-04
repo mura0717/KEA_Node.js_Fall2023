@@ -27,9 +27,19 @@ app.get("/", (req, res) => {
     res.send(pages.indexPage);
 })
 
+//signup
+app.get("/signup", (req, res) => {
+    res.send(pages.signupPage)
+})
+
 //login
 app.get("/login", (req, res) => {
     res.send(pages.loginPage)
+})
+
+//admin
+app.get("/admin", (req, res) => {
+    res.send(pages.adminPage)
 })
 
 //week1
