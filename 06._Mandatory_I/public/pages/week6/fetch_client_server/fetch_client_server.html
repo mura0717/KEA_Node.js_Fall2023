@@ -1,85 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="page-header">
+    <h1>Fetching in Client-side vs server-side</h1>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/global.css">
-    <link rel="stylesheet" href="/sidebar/sidebar.css">
-    <title>FetchClientServer</title>
+<div class="page-content">
+    <p>
+        Client-side data fetching does not need to pre-render your data  when the content of your pages needs to update frequently.
+    </p>
+    <p>
+        On the other hand, Server-side rendering (SSR) allows to render pages on the server, rather than in the browser. 
+    </p>
 
-</head>
+    <h4>Client-Side Fetch:</h4>
+    <pre><code>
+        app.get('/proxyserver', (req, res) => {
+            fetch('https://api.example.com/data')
+                .then((response) => response.text())
+                .then((result) => res.send(result))
+                .catch((error) => {
+                console.error(error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            });
+        });
+    </code></pre>
 
-<body>
-    <div class="wrapper">
-        <div class="d-flex">
+    <h4>Server-Side Fetch:</h4>
+    <pre><code>
+        fetch('/api/data')
+            .then((response) => {
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log(data); // Process the fetched data
+            })
+            .catch((error) => {
+                console.error('Fetch error:', error);
+            });
+    </code></pre>
 
-            <!-- Sidebar -->
-            <div id="sidebar-container"></div>
-
-            <!-- Page Content -->
-            <main class="mx-auto p-5">
-                <div class="page-header">
-                    <h1>Fetching in Client-side vs server-side</h1>
-                </div>
-
-                <div class="page-content">
-                    <p>
-                        Client-side data fetching does not need to pre-render your data  when the content of your pages needs to update frequently.
-                    </p>
-                    <p>
-                        On the other hand, Server-side rendering (SSR) allows to render pages on the server, rather than in the browser. 
-                    </p>
-
-                    <h4>Client-Side Fetch:</h4>
-                    <pre><code>
-                        app.get('/proxyserver', (req, res) => {
-                            fetch('https://api.example.com/data')
-                              .then((response) => response.text())
-                              .then((result) => res.send(result))
-                              .catch((error) => {
-                                console.error(error);
-                                res.status(500).json({ error: 'Internal Server Error' });
-                            });
-                        });
-                    </code></pre>
-
-                    <h4>Server-Side Fetch:</h4>
-                    <pre><code>
-                        fetch('/api/data')
-                            .then((response) => {
-                                if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                                }
-                                return response.json();
-                            })
-                            .then((data) => {
-                                console.log(data); // Process the fetched data
-                            })
-                            .catch((error) => {
-                                console.error('Fetch error:', error);
-                            });
-                    </code></pre>
-                </div>
-                <footer>
-                    References: <br>
-                    AllDevUtils (2023). Server-Side Rendering and Data Fetching. [online] Medium. Available at: https://blog.devgenius.io/server-side-rendering-and-data-fetching-3198dc605113 [Accessed 3 Oct. 2023]. <br>
-                    Breux, G. (n.d.). Client-side vs. Server-side vs. Pre-rendering for Web Apps. [online] Toptal Engineering Blog. Available at: https://www.toptal.com/front-end/client-side-vs-server-side-pre-rendering [Accessed 3 Oct. 2023].
-                </footer>
-            </main>
-         </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="/sidebar/sidebar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-</body>
-
-</html>
+    <p class="page-references">
+        References: <br>
+        AllDevUtils (2023). Server-Side Rendering and Data Fetching. [online] Medium. Available at: https://blog.devgenius.io/server-side-rendering-and-data-fetching-3198dc605113 [Accessed 3 Oct. 2023]. <br>
+        Breux, G. (n.d.). Client-side vs. Server-side vs. Pre-rendering for Web Apps. [online] Toptal Engineering Blog. Available at: https://www.toptal.com/front-end/client-side-vs-server-side-pre-rendering [Accessed 3 Oct. 2023].
+    </p>
+</div>

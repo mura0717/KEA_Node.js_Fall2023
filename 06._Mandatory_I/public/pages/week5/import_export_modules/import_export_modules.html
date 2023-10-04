@@ -1,113 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/global.css">
-    <link rel="stylesheet" href="/sidebar/sidebar.css">
-    <title>ImportExport</title>
+<div class="page-header">
+    <h1>Import & Export of JavaScript Modules</h1>
+</div>
 
-</head>
+<div class="page-content">
+    <h3>Modules</h3>
+    <p> 
+        JavaScript modules allow you to break up your code into separate files.
+        Modules are imported from external files with the import statement.
+        Modules also rely on type="module" in the script tag.
+    </p>
 
-<body>
-    <div class="wrapper">
-        <div class="d-flex">
+    <h4>For example:</h4>
+    <pre><code>
+        &lt;script type="module" import message from "./message.js" /script&gt;
+    </code></pre>
 
-            <!-- Sidebar -->
-            <div id="sidebar-container"></div>
-
-            <!-- Page Content -->
-            <main class="mx-auto p-5">
-                <div class="page-header">
-                    <h1>Importing & Exporting JavaScript Modules</h1>
-                </div>
-
-                <div class="page-content">
-                    <h3>Modules</h3>
-                    <p> 
-                        JavaScript modules allow you to break up your code into separate files.
-                        Modules are imported from external files with the import statement.
-                        Modules also rely on type="module" in the script tag.
-                    </p>
-
-                    <h4>For example:</h4>
-                    <pre><code>
-                        &lt;script type="module" import message from "./message.js" /script&gt;
-                    </code></pre>
-
-                    <h3>Export</h3>
-                    <p>     
-                        Modules with functions or variables can be stored in any external file. <br> 
-                        There are two types of exports:
-                    </p>
-                    <ul>
-                        <li>
-                            Named Exports:
-                            <pre><code>
-                            //In-line Individually
-                            export const name = "Jesse";
-                            export const age = 40;
-                            
-                            //Together in one line
-                            const name = "Jesse";
-                            const age = 40;
-
-                            export {name, age};
-                            </code></pre>
-                        </li>
-                        <li>
-                            Default Exports:
-                            <pre><code>
-                            const message = () => {
-                                const name = "Jesse";
-                                const age = 40;
-                                return name + ' is ' + age + 'years old.';
-                                };
-                                
-                            export default message;
-                            </code></pre>
-                        </li>
-                    </ul>
-                    <h3>Import</h3>
-                    <p>
-                        You can import modules into a file in two ways, based on if they are named exports or default exports. <br>
-                        Named exports are constructed using curly braces. Default exports are not.
-                    </p>
-                    <ul>
-                        <li>
-                            Import from named exports:
-                            <pre><code>
-                            import { name, age } from "./person.js";
-                            </code></pre>
-                        </li>
-                        <li>
-                            Import from default exports:
-                            <pre><code>
-                            import message from "./message.js";
-                            </code></pre>
-                        </li>
-                    </ul>
-                </div>
-                <footer>
-                    References: <br>
-                    www.w3schools.com. (n.d.). JavaScript Modules. [online] Available at: https://www.w3schools.com/js/js_modules.asp [Accessed 2 Oct. 2023].
-                </footer>
+    <h3>Export</h3>
+    <p>     
+        Modules with functions or variables can be stored in any external file. <br> 
+        There are two types of exports:
+    </p>
+    <ul>
+        <li>
+            Named Exports:
+            <pre><code>
+            //In-line Individually
+            export const name = "Jesse";
+            export const age = 40;
             
-            </main>
-         </div>
-    </div>
+            //Together in one line
+            const name = "Jesse";
+            const age = 40;
 
-    <!-- Scripts -->
-    <script src="/sidebar/sidebar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-</body>
-
-</html>
+            export {name, age};
+            </code></pre>
+        </li>
+        <li>
+            Default Exports:
+            <pre><code>
+            const message = () => {
+                const name = "Jesse";
+                const age = 40;
+                return name + ' is ' + age + 'years old.';
+                };
+                
+            export default message;
+            </code></pre>
+        </li>
+    </ul>
+    <h3>Import</h3>
+    <p>
+        You can import modules into a file in two ways, based on if they are named exports or default exports. <br>
+        Named exports are constructed using curly braces. Default exports are not.
+    </p>
+    <ul>
+        <li>
+            Import from named exports:
+            <pre><code>
+            import { name, age } from "./person.js";
+            </code></pre>
+        </li>
+        <li>
+            Import from default exports:
+            <pre><code>
+            import message from "./message.js";
+            </code></pre>
+        </li>
+    </ul>
+    
+    <p class="page-references">
+        References: <br>
+        www.w3schools.com. (n.d.). JavaScript Modules. [online] Available at: https://www.w3schools.com/js/js_modules.asp [Accessed 2 Oct. 2023].
+    </p>
+</div>

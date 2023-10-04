@@ -1,0 +1,52 @@
+
+<div class="page-header">
+    <h1>JS Dates</h1>
+</div>
+    <div class="page-content">
+        <p>
+            JavaScript Date Objects let us work with dates. <br>
+            By default, JavaScript will use the browser's time zone and display a date as a full text string:
+        </p>
+
+        <p style="font-weight: bold;">
+            Mon Oct 02 2023 11:33:28 GMT+0200 (Central European Summer Time)
+        </p>
+
+        <h4>Creating Data Objects:</h4>
+        <pre><code>
+            // Date objects are created with the new Date() constructor.
+
+            // There are 9 ways to create a new date object:
+            
+            new Date()
+            new Date("date string")
+
+            new Date(year,month)
+            new Date(year,month,day)
+            new Date(year,month,day,hours)
+            new Date(year,month,day,hours,minutes)
+            new Date(year,month,day,hours,minutes,seconds)
+            new Date(year,month,day,hours,minutes,seconds,ms)
+
+            new Date(milliseconds)
+            
+        </code></pre>
+
+        <h4>JS Date Input:</h4>
+        <pre><code>
+            // ISO Date:
+            const d = new Date("2015-03-25");
+
+            // Short Date:
+            const d = new Date("03/25/2015");
+
+            // Long Date:
+            const d = new Date("Mar 25 2015");
+            
+        </code></pre>
+    
+    <p class="page-references">
+        References: <br>
+        www.w3schools.com. (n.d.). JavaScript Date Objects. [online] Available at: https://www.w3schools.com/js/js_dates.asp [Accessed 2 Oct. 2023].  
+    </footer>
+</div>

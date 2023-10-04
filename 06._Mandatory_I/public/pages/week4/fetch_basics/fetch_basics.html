@@ -1,67 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="page-header">
+    <h1>JavaScript Fetch API</h1>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/global.css">
-    <link rel="stylesheet" href="/sidebar/sidebar.css">
-    <title>Fetch</title>
+<div class="page-content">
+    <p>
+        The Fetch API interface allows web browser to make HTTP requests to web servers.
+    </p>
 
-</head>
+    <h4>A Fetch API Example:</h4>
+    <pre><code>
+    // In simple, this example fetches a file and displays the content:
+        fetch(file)
+        .then(x => x.text())
+        .then(y => myDisplay(y));
 
-<body>
-    <div class="wrapper">
-        <div class="d-flex">
+    // Since Fetch is based on async and await, the example is similar to this:
+        async function getText(file) {
+            let myObject = await fetch(file);
+            let myText = await myObject.text();
+            myDisplay(myText);
+            }
+    </code></pre>
 
-            <!-- Sidebar -->
-            <div id="sidebar-container"></div>
+    <p class="page-references">
+        References: <br>
+        www.w3schools.com. (n.d.). JavaScript Fetch API. [online] Available at: https://www.w3schools.com/js/js_api_fetch.asp [Accessed 2 Oct. 2023].
+    </p>
 
-            <!-- Page Content -->
-            <main class="mx-auto p-5">
-                <div class="page-header">
-                    <h1>JavaScript Fetch API</h1>
-                </div>
-
-                <div class="page-content">
-                    <p>
-                        The Fetch API interface allows web browser to make HTTP requests to web servers.
-                    </p>
-
-                    <h4>A Fetch API Example:</h4>
-                    <pre><code>
-                        // In simple, this example fetches a file and displays the content:
-                        fetch(file)
-                        .then(x => x.text())
-                        .then(y => myDisplay(y));
-
-                        // Since Fetch is based on async and await, the example might be easier to understand like this:
-                        async function getText(file) {
-                            let myObject = await fetch(file);
-                            let myText = await myObject.text();
-                            myDisplay(myText);
-                          }
-                    </code></pre>
-                </div>
-                <footer>
-                    References: <br>
-                    www.w3schools.com. (n.d.). JavaScript Fetch API. [online] Available at: https://www.w3schools.com/js/js_api_fetch.asp [Accessed 2 Oct. 2023].
-                 </footer>
-            
-            </main>
-         </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="/sidebar/sidebar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-</body>
-
-</html>
+</div>
