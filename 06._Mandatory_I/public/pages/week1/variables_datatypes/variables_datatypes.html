@@ -1,193 +1,155 @@
-<!DOCTYPE html>
-<html lang="en">
+<h1 class="page-header">Variables & Datatypes in JS</h1>
+<div class="page-content">
+    <h3>Types of Variables</h3>
+    <p>Javascript variables are containers for storing data. <br>
+        And there are 3 ways to create data:
+    </p>
+    <ul>
+        <li>
+            <p>var: For older browsers (The 'var' keyword was used from 1995-2015).</p>
+        </li>
+        <li>
+            <p>let: For data that can change. (Only use when 'const' can't be used.)</p>
+        </li>
+        <li>
+            <p>const: For values that won't change.</p>
+        </li>
+    </ul>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/global.css">
-    <link rel="stylesheet" href="/sidebar/sidebar.css">
-    <title>Vars&Types</title>
-</head>
+    <h4>Example: var</h4>
+    <pre><code class="snippet">
+        var x = 5;
+        var y = 6;
+        var z = x + y;
+    </code></pre>
 
-<body>
-    <div class="wrapper">
-        <div class="d-flex">
+    <h4>Example: let</h4>
 
-            <!-- Sidebar -->
-            <div id="sidebar-container"></div>
+    <pre><code>
+        let x = 5;
+        let y = 6;
+        let z = x + y;
+    </code></pre>
 
-            <!-- Page Content -->
-            <main class="mx-auto p-5">
-                <h1 class="page-header">Variables & Datatypes in JS</h1>
-                <div class="page-content">
-                    <h4>Types of Variables</h4>
-                    <p>Javascript variables are containers for storing data. <br>
-                        And there are 3 ways to create data:
-                    </p>
-                    <ul>
-                        <li>
-                            <p>var: For older browsers (The 'var' keyword was used from 1995-2015).</p>
-                        </li>
-                        <li>
-                            <p>let: For data that can change. (Only use when 'const' can't be used.)</p>
-                        </li>
-                        <li>
-                            <p>const: For values that won't change.</p>
-                        </li>
-                    </ul>
+    <h4>Example: const</h4>
+    <pre><code>
+        const x = 5;
+        const y = 6;
+        const z = x + y;
+    </code></pre>
 
-                    <h4>Example: var</h4>
-                    <pre><code class="snippet">
-                        var x = 5;
-                        var y = 6;
-                        var z = x + y;
-                    </code></pre>
+    <h2>Scopes</h2>
+    <ul>
+        <li>
+            <p>BLOCK: Variables (let & const) declared inside a { } block cannot be accessed from
+                outside the block.
+                Variables declared with the var keyword be declared inside a { } block and be accessed
+                from outside the block.
+            </p>
+        </li>
+        <pre><code>
+    for(let i = 0; i < 5; i++){
+        var str = "text"
+    }
+    console.log(str) // str CAN be used here.
+    </code></pre>
+        <li>
+            <p>LOCAL: Variables declared within a JavaScript function, become LOCAL to the function.</p>
+        </li>
+        <pre><code>
+    // code here can NOT use carName
 
-                    <h4>Example: let</h4>
+    function myFunction() {
+    let carName = "Volvo";
+    // code here CAN use carName
+    }
 
-                    <pre><code>
-                        let x = 5;
-                        let y = 6;
-                        let z = x + y;
-                    </code></pre>
+    // code here can NOT use carName
+    </code></pre>
+        <li>
+            <p>FUNCTION: Variables defined inside a function are not accessible (visible) from outside
+                the function.</p>
+        </li>
+        <pre><code>
+    function myFunction() {
+        let carName = "Volvo";   // Function Scope
+    }
 
-                    <h4>Example: const</h4>
-                    <pre><code>
-                        const x = 5;
-                        const y = 6;
-                        const z = x + y;
-                    </code></pre>
-
-                    <h2>Scopes</h2>
-                    <ul>
-                        <li>
-                            <p>BLOCK: Variables (let & const) declared inside a { } block cannot be accessed from
-                                outside the block.
-                                Variables declared with the var keyword be declared inside a { } block and be accessed
-                                from outside the block.
-                            </p>
-                        </li>
-                        <pre><code>
-                    for(let i = 0; i < 5; i++){
-                        var str = "text"
-                    }
-                    console.log(str) // str CAN be used here.
-                    </code></pre>
-                        <li>
-                            <p>LOCAL: Variables declared within a JavaScript function, become LOCAL to the function.</p>
-                        </li>
-                        <pre><code>
-                    // code here can NOT use carName
-
-                    function myFunction() {
-                    let carName = "Volvo";
-                    // code here CAN use carName
-                    }
-
-                    // code here can NOT use carName
-                    </code></pre>
-                        <li>
-                            <p>FUNCTION: Variables defined inside a function are not accessible (visible) from outside
-                                the function.</p>
-                        </li>
-                        <pre><code>
-                    function myFunction() {
-                        let carName = "Volvo";   // Function Scope
-                    }
-
-                    function myFunction() {
-                    const carName = "Volvo";   // Function Scope
-                    }
-                    </code></pre>
-                        <li>
-                            <p>GLOBAL: A variable declared outside a function, becomes GLOBAL.</p>
-                            <pre><code>
-                    let carName = "Volvo";
-                    // code here can use carName
-                    
-                    function myFunction() {
-                    // code here can also use carName
-                    }
-                    </code></pre>
-                        </li>
-                    </ul>
-
-                    <h2>Javascript has 8 Datatypes</h2>
-                    <ul>
-                        <li>
-                            String
-                        </li>
-                        <li>
-                            Number
-                        </li>
-                        <li>
-                            Bigint
-                        </li>
-                        <li>
-                            Boolean
-                        </li>
-                        <li>
-                            Undefined
-                        </li>
-                        <li>
-                            Null
-                        </li>
-                        <li>
-                            Symbol
-                        </li>
-                        <li>
-                            Object (Object/Array/Date)
-                        </li>
-                    </ul>
-
-                    <h4>Examples:</h4>
-                    <pre><code>
-                        // Numbers:
-                        let length = 16;
-                        let weight = 7.5;
-
-                        // Strings:
-                        let color = "Yellow";
-                        let lastName = "Johnson";
-
-                        // Booleans
-                        let x = true;
-                        let y = false;
-
-                        // Object:
-                        const person = {firstName:"John", lastName:"Doe"};
-
-                        // Array object:
-                        const cars = ["Saab", "Volvo", "BMW"];
-
-                        // Date object:
-                        const date = new Date("2022-03-25");
-                    </code></pre>
-                </div>
-                <footer>
-                    References: <br>
-                    W3schools.com. (2019a). JavaScript Scope. [online] Available at:
-                    https://www.w3schools.com/js/js_scope.asp. <br>
-                    W3schools.com. (2019b). JavaScript Variables. [online] Available at:
-                    https://www.w3schools.com/js/js_variables.asp. <br>
-                    W3schools.com. (2020). JavaScript Data Types. [online] Available at:
-                    https://www.w3schools.com/js/js_datatypes.asp.
-                </footer>
-
-            </main>
-        </div>
-    </div>
+    function myFunction() {
+    const carName = "Volvo";   // Function Scope
+    }
+    </code></pre>
+        <li>
+            <p>GLOBAL: A variable declared outside a function, becomes GLOBAL.</p>
+            <pre><code>
+    let carName = "Volvo";
+    // code here can use carName
     
-    <!-- Scripts -->
-    <script src="/sidebar/sidebar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-</body>
+    function myFunction() {
+    // code here can also use carName
+    }
+    </code></pre>
+        </li>
+    </ul>
 
-</html>
+    <h3>Javascript has 8 Datatypes</h3>
+    <ul>
+        <li>
+            String
+        </li>
+        <li>
+            Number
+        </li>
+        <li>
+            Bigint
+        </li>
+        <li>
+            Boolean
+        </li>
+        <li>
+            Undefined
+        </li>
+        <li>
+            Null
+        </li>
+        <li>
+            Symbol
+        </li>
+        <li>
+            Object (Object/Array/Date)
+        </li>
+    </ul>
+
+    <h4>Examples:</h4>
+    <pre><code>
+        // Numbers:
+        let length = 16;
+        let weight = 7.5;
+
+        // Strings:
+        let color = "Yellow";
+        let lastName = "Johnson";
+
+        // Booleans
+        let x = true;
+        let y = false;
+
+        // Object:
+        const person = {firstName:"John", lastName:"Doe"};
+
+        // Array object:
+        const cars = ["Saab", "Volvo", "BMW"];
+
+        // Date object:
+        const date = new Date("2022-03-25");
+    </code></pre>
+</div>
+<p class="page-references">
+    References: <br>
+    W3schools.com. (2019a). JavaScript Scope. [online] Available at:
+    https://www.w3schools.com/js/js_scope.asp. <br>
+    W3schools.com. (2019b). JavaScript Variables. [online] Available at:
+    https://www.w3schools.com/js/js_variables.asp. <br>
+    W3schools.com. (2020). JavaScript Data Types. [online] Available at:
+    https://www.w3schools.com/js/js_datatypes.asp.
+</p>

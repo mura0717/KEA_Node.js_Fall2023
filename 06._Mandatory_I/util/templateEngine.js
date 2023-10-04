@@ -15,5 +15,4 @@ export function renderPage(pageBody, config={}){
     .replace("$SCRIPTS", config.scripts || "");
 
     return sidebar + pageBody + footer;
-
 }

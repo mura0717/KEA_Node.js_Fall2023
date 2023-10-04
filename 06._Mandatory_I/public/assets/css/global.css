@@ -7,9 +7,18 @@
     font-family:'Papyrus', sans-serif;
 }
 
+.page-references {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top:3em;
+}
+
 footer {
-    font-family:'Times New Roman', sans-serif;
+    font-family:'Papyrus', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top:2em;
 }
+
 
 

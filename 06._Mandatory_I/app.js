@@ -11,27 +11,36 @@ app.get("/", (req, res) => {
     res.send(pages.indexPage);
 })
 
-//sidebar
-app.get("/sidebar", (req, res) => {
-    res.sendFile(__dirname + "/public/sidebar/sidebar.html");
-});
+//gogin
+app.get("/login", (req, res) => {
+    res.send(pages.loginPage)
+})
 
-//Week1
+
+//week1
+
 app.get("/nodeJS", (req, res) => {
-    res.sendFile(__dirname + "/public/week1/nodeJS/nodeJS.html")
-})
-
-app.get("/variables_datatypes", (req, res) => {
-    res.sendFile(__dirname + "/public/week1/variables_datatypes/variables_datatypes.html")
-})
-
-app.get("/clean_code", (req, res) => {
-    res.sendFile(__dirname + "/public/week1/clean_code/clean_code.html")
+    res.send(pages.nodeJSPage)
 })
 
 app.get("/git_commands", (req, res) => {
-    res.sendFile(__dirname + "/public/week1/git_commands/git_commands.html")
+    res.send(pages.gitCommandsPage)
 })
+
+app.get("/clean_code", (req, res) => {
+    res.send(pages.cleancodePage)
+})
+
+
+
+
+app.get("/variables_datatypes", (req, res) => {
+    res.send(pages.variablesDataTypesPage)
+})
+
+
+
+
 
 //Week2
 
@@ -104,10 +113,7 @@ app.get("/fetch_client_server", (req, res) => {
     res.sendFile(__dirname + "/public/week6/fetch_client_server/fetch_client_server.html")
 })
 
-//Login
- app.get("/login", (req, res) => {
-    res.sendFile(__dirname + "/public/login/login.html")
-})
+
 
 
 //connection
