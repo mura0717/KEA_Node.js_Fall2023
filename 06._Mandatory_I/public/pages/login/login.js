@@ -1,5 +1,3 @@
-const submitLoginForm = document.getElementById("login-form")
-
 const savedUsername = sessionStorage.getItem("username");
 const savedPassword = sessionStorage.getItem("password");
 
@@ -7,11 +5,14 @@ const savedPassword = sessionStorage.getItem("password");
 document.getElementById("input-username").value = savedUsername;
 document.getElementById("input-password").value = savedPassword;
 
+
+const submitLoginForm = document.getElementById("login-form")
+
 submitLoginForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    
+
     const givenUsername = document.getElementById("input-username").value;
-    const givenPassword = document.getElementById("input-uassword").value;
+    const givenPassword = document.getElementById("input-password").value;
 
     if (savedPassword == givenUsername && savedPassword == givenPassword){
         window.location.href = ("/admin");
@@ -19,8 +20,10 @@ submitLoginForm.addEventListener("submit", (event) => {
         const errorText = document.getElementById("message")
         errorText.innerHTML = `
         Wrong username or password. <br> 
-        The saved data from session storage is ${savedUsername} and ${savedPassword}. <br> 
-        Use this data to log in.
+        The saved data from session storage is: <br>
+        Username: ${savedUsername} <br> 
+        Password: ${savedPassword} <br> 
+        So use this to log in.
         `
     }
 })

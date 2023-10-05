@@ -8,7 +8,7 @@ submitSignUpForm.addEventListener("submit", (event) => {
     sessionStorage.setItem("password", inputPassword);
     if (!inputUsername && !inputUsername) {
         const errorText = document.getElementById("message")
-        errorText.innerHTML = "Form can't be submitted empty."
+        errorText.innerHTML = "Form cannot be submitted empty."
     } else {
         window.location.href = ("/login");
     }

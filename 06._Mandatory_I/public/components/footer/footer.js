@@ -1,1 +1,1 @@
-document.getElementById("copyright").innerText = `Full Stack NodeJS KEA Autumn - ©${new Date().getFullYear()}`;
+document.getElementById("copyright").innerText = `Full Stack NodeJS KEA Autumn - 2023`;

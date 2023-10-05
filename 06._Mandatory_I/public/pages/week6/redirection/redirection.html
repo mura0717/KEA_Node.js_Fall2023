@@ -4,15 +4,41 @@
 
 <div class="page-content">
     <p>
-        Page content here.
+        In JavaScript, there are several ways to perform redirections. <br>
+        These essentially involve changing the current URL of a web page to navigate to a different location. 
     </p>
 
-    <h4>Subtitle Here:</h4>
+    <h4>Client-Side Redirections:</h4>
+    <p>
+        The "window.location" object stores the location or URL of the page, <br>
+        and we can redirect into another page using this window.location.
+    </p>
     <pre><code>
-        //code here
+        //to set or return the complete URL of the current page.
+        window.location.href = "https://example.com";
+
+        //to replace the current document with the specified one.
+        window.location.replace("https://example.com");
+
+        //to load a new document.
+        window.location.assign("https://example.com");
+    </code></pre>
+    <h4>Server-Side Redirections:</h4>
+    <p>
+        A server-side redirect is a forwarding method in which the server sends a 3xx HTTP status code when a URL is requested. <br>
+        Server-side redirections involve the server instructing the client to navigate to a different URL:
+    </p>
+    <pre><code>
+        // Redirect to a new URL with a 302 status code
+        res.redirect(302, 'https://example.com');
+        
+        //Redirect by using an HTML <meta> with specifying a delay.
+        <meta http-equiv="refresh" content="5;url=https://example.com">
+
     </code></pre>
 
     <p class="page-references">
         References: <br>
+        ProgrammerAnvesh (2019). How to redirect to another webpage using JavaScript ? [online] GeeksforGeeks. Available at: https://www.geeksforgeeks.org/how-to-redirect-to-another-webpage-using-javascript/ [Accessed 5 Oct. 2023].
     </p>
 </div>

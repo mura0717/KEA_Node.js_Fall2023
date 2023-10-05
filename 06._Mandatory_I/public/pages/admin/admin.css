@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Prevent scrollbars */
+    overflow: hidden;
 }
 
 .background-container {
@@ -73,4 +73,5 @@ body {
 #back-to-reality-button:hover {
     background-color: #008CBA;
     color: white;
+    cursor: pointer;
   }
