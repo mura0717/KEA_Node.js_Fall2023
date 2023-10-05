@@ -13,6 +13,7 @@
         The "window.location" object stores the location or URL of the page, <br>
         and we can redirect into another page using this window.location.
     </p>
+    <h4>Examples:</h4>
     <pre><code>
         //to set or return the complete URL of the current page.
         window.location.href = "https://example.com";
@@ -25,20 +26,38 @@
     </code></pre>
     <h4>Server-Side Redirections:</h4>
     <p>
-        A server-side redirect is a forwarding method in which the server sends a 3xx HTTP status code when a URL is requested. <br>
         Server-side redirections involve the server instructing the client to navigate to a different URL:
     </p>
+    <h4>Examples:</h4>
     <pre><code>
-        // Redirect to a new URL with a 302 status code
+        // Redirect to a new URL with a 302 status code:
         res.redirect(302, 'https://example.com');
-        
-        //Redirect by using an HTML <meta> with specifying a delay.
+
+        //Redirect by using an HTML <meta> with specifying a delay:
         <meta http-equiv="refresh" content="5;url=https://example.com">
+
+        // Redirect by a server-side action to fetch content 
+        //from another URL and serve it to the client:
+        app.get("/proxyserver", (req, res) => {
+            fetch('http://www.google.com')
+            .then((response) => response.text())
+            .then((result) => res.send(result));
+        });
+
+        // Redirect by the server instructing the client's browser 
+        //to navigate to a different URL based on certain conditions.
+        app.get("/doorman/:key", (req, res) => {
+            if(req.params.key === "sesameopenup"){
+                return res.redirect("welcomeMessage");
+            }
+            res.send({ data: "Incorrect key" })
+        });
 
     </code></pre>
 
     <p class="page-references">
         References: <br>
+        Redirection exercises from class.
         ProgrammerAnvesh (2019). How to redirect to another webpage using JavaScript ? [online] GeeksforGeeks. Available at: https://www.geeksforgeeks.org/how-to-redirect-to-another-webpage-using-javascript/ [Accessed 5 Oct. 2023].
     </p>
 </div>

@@ -25,7 +25,7 @@ app.get("/welcomeMessage", (req, res) => {
     const clientName = req.query.user;
     const welcomeMessage = welcomeMessageUtil.getWelcomeMessage(clientName)
     //const welcomeMessage = welcomeMessageUtil.name;
-    // console.log(welcomeMessage) //Sebastian
+    //console.log(welcomeMessage) //Sebastian
     res.send({data : welcomeMessage})
 })
 

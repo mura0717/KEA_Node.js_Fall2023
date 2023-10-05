@@ -4,12 +4,42 @@
 
 <div class="page-content">
     <p>
-        Page content here.
+        HTML is the standard markup language for creating Web pages. <br>
+        It consists of elements that tells the browser how to display them. <br>
+    </p>
+    <p>
+        With over 100 HTML elements, and the ability to create custom elements, <br>
+        there are infinite ways to mark up your content; but some ways -semantically— are better than others.
+    </p>
+    <p>
+        Semantic means "relating to meaning". Writing semantic HTML means using HTML elements <br>
+        to structure your content based on each element's meaning, not its appearance.
     </p>
 
-    <h4>Subtitle Here:</h4>
+    <h4>Look at the following code:</h4>
     <pre><code>
-        //code here
+        <div>
+            <span>Three words</span>
+            <div>
+              <a>one word</a>
+              <a>one word</a>
+              <a>one word</a>
+              <a>one word</a>
+            </div>
+          </div>
+    </code></pre>
+
+    <h4>Rewritten with semantic elements:</h4>
+    <pre><code>
+        <header>
+            <h1>Three words</h1>
+            <nav>
+              <a>one word</a>
+              <a>one word</a>
+              <a>one word</a>
+              <a>one word</a>
+            </nav>
+          </header>
     </code></pre>
 
     <p class="page-references">
