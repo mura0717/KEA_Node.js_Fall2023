@@ -16,33 +16,50 @@
         to structure your content based on each element's meaning, not its appearance.
     </p>
 
-    <h4>Look at the following code:</h4>
+    <h4>An exampel code with elements without semantic value:</h4>
     <pre><code>
         <div>
             <span>Three words</span>
             <div>
               <a>one word</a>
               <a>one word</a>
-              <a>one word</a>
-              <a>one word</a>
             </div>
           </div>
+          <div>
+            <div>
+              <div>five words</div>
+            </div>
+            <div>
+              <div>three words</div>
+              <div>forty-six words</div>
+            </div>
     </code></pre>
 
-    <h4>Rewritten with semantic elements:</h4>
+    <h4>Same code - rewritten with semantic elements:</h4>
     <pre><code>
         <header>
             <h1>Three words</h1>
             <nav>
               <a>one word</a>
               <a>one word</a>
-              <a>one word</a>
-              <a>one word</a>
             </nav>
           </header>
+          <main>
+            <header>
+              <h1>five words</h1>
+            </header>
+            <section>
+              <h2>three words</h2>
+              <p>forty-six words</p>
+            </section>
     </code></pre>
+    <p>
+        As seen in the second code block, semantic elements allow the HTML structure <br>
+        to be understood even without understanding the content, as they also provide meaning.
+    </p>
 
     <p class="page-references">
         References: <br>
+        web.dev. (n.d.). Semantic HTML. [online] Available at: https://web.dev/learn/html/semantic-html/ [Accessed 5 Oct. 2023].
     </p>
 </div>
