@@ -1,14 +1,18 @@
-const savedUsername = localStorage.getItem("username");
-const savedPassword = localStorage.getItem("password");
+const submitLoginForm = document.getElementById("login-form")
 
-document.getElementById("inputUsername").value.setItem(savedUsername);
-document.getElementById("inputPassword").value.setItem(savedPassword);
+const savedUsername = sessionStorage.getItem("username");
+const savedPassword = sessionStorage.getItem("password");
 
-submitLoginForm.addEventListener("submit", () => {
-    if (savedUsername == localStorage.getItem("username") && savedPassword == localStorage.getItem("password")){
-        window.location.href("/admin");
+submitLoginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let username = document.getElementById("inputUsername").value
+    let password = document.getElementById("inputPassword").value
+    username = savedUsername;
+    password = savedPassword;
+    if (username == savedPassword && password == savedPassword){
+        window.location.href = ("/admin");
     } else {
-        console.log("Error: Failed to fill out the form.");
+        console.log("Error: Wrong username or password.");
         return;
     }
 })

@@ -27,8 +27,22 @@ body {
 
 #admin-title {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: xx-large;
+    font-weight:bold;
     color: white;
 }
+
+.blink {
+    animation: blinker 1s linear infinite;
+    background:red;
+    color:white;
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
 
 .bottom-container {
     display: flex;
@@ -46,7 +60,17 @@ body {
 }
 
 #back-to-reality-button {
-    background-color: #f44336;
-    border-radius: 8px;
-    border: 2px solid #555555;
+    background-color: rgb(165, 0, 140); 
+    color: rgb(200, 200, 200); 
+    font-size: 16px;
+    border: 2px solid #ff6600;
+    border-radius: 4px;
+    padding: 10px 24px;
+    transition-duration: 0.4s;
+    
 }
+
+#back-to-reality-button:hover {
+    background-color: #008CBA;
+    color: white;
+  }
