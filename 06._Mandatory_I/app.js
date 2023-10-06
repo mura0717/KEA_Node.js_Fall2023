@@ -141,7 +141,7 @@ app.get("/structuring_html", (req, res) => {
 
 //Week7
 app.get("/client_server_rendering", (req, res) => {
-    res.send(pages.structuringHTMLPage)
+    res.send(pages.clientServerRenderingPage)
 })
 
 

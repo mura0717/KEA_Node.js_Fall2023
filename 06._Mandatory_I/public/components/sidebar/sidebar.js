@@ -10,12 +10,12 @@ const arrowDown = `
 </svg>
 `
 
-//Default Arrow Icon Display Function:
+//Default Arrow Icon Display:
 document.addEventListener("DOMContentLoaded", function sidebarListIconsOnPageLoad() {
   const iconElementsDefault = document.querySelectorAll(".icon-id");
 
   iconElementsDefault.forEach((iconElement) => {
-    iconElement.innerHTML = arrowDown;
+    iconElement.innerHTML = arrowRight;
   })
 })
 

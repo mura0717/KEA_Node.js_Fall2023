@@ -16,6 +16,12 @@ submitLoginForm.addEventListener("submit", (event) => {
 
     if (savedPassword == givenUsername && savedPassword == givenPassword){
         window.location.href = ("/admin");
+    } else if (!givenUsername || !givenPassword){
+        const errorText = document.getElementById("message")
+        errorText.innerHTML = "Form can't be submitted empty."
+    } else if (!savedUsername || !savedPassword ){
+        const errorText = document.getElementById("message")
+        errorText.innerHTML = "No data in session storage, you haven't signed up yet."
     } else {
         const errorText = document.getElementById("message")
         errorText.innerHTML = `
