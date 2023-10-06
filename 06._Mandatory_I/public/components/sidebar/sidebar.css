@@ -10,3 +10,17 @@
     text-decoration: none;
 }
 
+.btn-toggle {
+    color: initial;
+    background-color: initial; 
+  }
+
+.btn-toggle:hover {
+    color: rgba(0, 0, 0, .85) !important;
+    background-color: #e9d2f4 !important;
+}
+
+.btn-toggle:focus {
+   outline: none;
+}
+

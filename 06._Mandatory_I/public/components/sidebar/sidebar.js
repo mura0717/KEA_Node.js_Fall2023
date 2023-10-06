@@ -12,7 +12,7 @@ const arrowDown = `
 
 //Default Arrow Icon Display:
 document.addEventListener("DOMContentLoaded", function sidebarListIconsOnPageLoad() {
-  const iconElementsDefault = document.querySelectorAll(".icon-id");
+  const iconElementsDefault = document.querySelectorAll(".arrow-icon");
 
   iconElementsDefault.forEach((iconElement) => {
     iconElement.innerHTML = arrowRight;
