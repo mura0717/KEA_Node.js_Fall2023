@@ -52,13 +52,6 @@ body {
     margin:auto;
   }
 
-.play-me {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    padding-left: 1em;
-    padding-right: 1em;
-    color: white;
-}
-
 #back-to-reality-button {
     background-color: rgb(165, 0, 140); 
     color: rgb(200, 200, 200); 
