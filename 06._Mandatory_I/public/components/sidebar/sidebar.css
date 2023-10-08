@@ -10,10 +10,10 @@
     text-decoration: none;
 }
 
-/* .sidebar-header:hover {
-    color: rgba(0, 0, 0, .85) !important;
-    background-color: #e9d2f4 !important;
-} */
+ .sidebar-header:hover {
+    color: rgba(0, 0, 0, .85);
+    background-color: #f4f2d2; 
+}
 
 .btn-toggle {
     color: initial;
@@ -22,7 +22,7 @@
 
 .btn-toggle:hover {
     color: rgba(0, 0, 0, .85) !important;
-    background-color: #f0f4d2 !important;
+    background-color: #f4f2d2 !important;
 }
 
 .btn-toggle:focus {

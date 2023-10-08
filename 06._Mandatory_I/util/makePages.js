@@ -8,7 +8,7 @@ const globalCSS = `<link rel="stylesheet" href="/assets/css/global.css">`;
 const sidebarCSS = `<link rel="stylesheet" href="/components/sidebar/sidebar.css">`;
 const indexCSS = `<link rel="stylesheet" href="/pages/index/index.css">`;
 const cleancodeCSS = `<link rel="stylesheet" href="/pages/week1/clean_code/clean_code.css">`;
-const nodejsCSS = `<link rel="stylesheet" href="/pages/week1/node_js/node_js.css">`;
+const nodejsCSS = `<link rel="stylesheet" href="/pages/week1/nodeJS/nodeJS.css">`;
 const expressCSS = `<link rel="stylesheet" href="/pages/week2/express/express.css">`;
 const deploymentCSS = `<link rel="stylesheet" href="/pages/week4/deployment/deployment.css">`;
 const xssCSS = `<link rel="stylesheet" href="/pages/week5/XSS/XSS.css">`;
@@ -37,7 +37,7 @@ export const indexPage = renderPage(index, {
     tabName: "Home | Welcome",
     cssLinks: `${globalCSS}${sidebarCSS}${indexCSS}`,
     cdnLinks: `${bootstrapCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}`
+    scripts: `${bootstrapJS}${footerJS}${sidebarJS}`
 });
 
 //signup
@@ -46,7 +46,7 @@ export const signupPage = renderPage(signup, {
     tabName: "Login",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${signupJS}`
+    scripts: `${footerJS}${bootstrapJS}${signupJS}${sidebarJS}`
 });
 
 //login
@@ -55,7 +55,7 @@ export const loginPage = renderPage(login, {
     tabName: "Login",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${loginJS}`
+    scripts: `${footerJS}${bootstrapJS}${loginJS}${sidebarJS}`
 });
 
 //admin
@@ -71,7 +71,7 @@ export const nodeJSPage = renderPage(nodeJS, {
     tabName: "NodeJS",
     cssLinks: `${globalCSS}${sidebarCSS}${nodejsCSS}`,
     cdnLinks: `${bootstrapCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}`
+    scripts: `${footerJS}${bootstrapJS}${sidebarJS}`
 });
 
 //variables_datatypes
@@ -80,7 +80,7 @@ export const variablesDataTypesPage = renderPage(variablesDataTypes, {
     tabName: "Variables || Data Types",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 //clean_code
@@ -89,7 +89,7 @@ export const cleancodePage = renderPage(cleanCode, {
     tabName: "Clean Code",
     cssLinks: `${globalCSS}${sidebarCSS}${cleancodeCSS}`,
     cdnLinks: `${bootstrapCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}`
+    scripts: `${footerJS}${bootstrapJS}${sidebarJS}`
 });
 
 //git_commands
@@ -98,7 +98,7 @@ export const gitCommandsPage = renderPage(gitCommands, {
     tabName: "Git Commands",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 
@@ -110,7 +110,7 @@ export const expressPage = renderPage(express, {
     tabName: "Express",
     cssLinks: `${globalCSS}${sidebarCSS}${expressCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 //functions
@@ -119,7 +119,7 @@ export const functionsPage = renderPage(functions, {
     tabName: "JS Functions",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 //node_modules
@@ -128,7 +128,7 @@ export const nodeModulesPage = renderPage(nodeModules, {
     tabName: "Node Modules",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 //package_json
@@ -137,7 +137,7 @@ export const packageJSONPage = renderPage(packageJSON, {
     tabName: "Package.JSON",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 //restAPI_conventions
@@ -146,7 +146,7 @@ export const restAPIConventionsPage = renderPage(restAPIConventions, {
     tabName: "REST API CONVENTIONS",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 
@@ -158,7 +158,7 @@ export const crudableRestApiPage = renderPage(crudableRestApi, {
     tabName: "CRUDable Rest API",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 //loops_js
@@ -167,7 +167,7 @@ export const loopsJSPage = renderPage(loopsJS, {
     tabName: "Loops JS",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 //servingExpress
@@ -176,7 +176,7 @@ export const servingExpressPage = renderPage(servingExpress, {
     tabName: "Serving Express",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 //url_anatomy
@@ -185,7 +185,7 @@ export const urlAnatomyPage = renderPage(urlAnatomy, {
     tabName: "Anatomy of an URL",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 
@@ -197,7 +197,7 @@ export const datesTimesJSPage = renderPage(datesTimesJS, {
     tabName: "Dates&Times JS",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 //deployment
@@ -206,7 +206,7 @@ export const deploymentPage = renderPage(deployment, {
     tabName: "Deployment",
     cssLinks: `${globalCSS}${sidebarCSS}${deploymentCSS}`,
     cdnLinks: `${bootstrapCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}`
+    scripts: `${footerJS}${bootstrapJS}${sidebarJS}`
 });
 
 //fetch_basics
@@ -215,7 +215,7 @@ export const fetchBasicsPage = renderPage(fetchBasics, {
     tabName: "Fetch Basics",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 
@@ -227,7 +227,7 @@ export const commonJS_ESmodulesPage = renderPage(commonJS_ESmodules, {
     tabName: "CommonJS & ESmodules",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 //import_export_modules
@@ -236,7 +236,7 @@ export const importExportModulesPage = renderPage(importExportModules, {
     tabName: "Import & Export Modules",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 //XSS
@@ -245,7 +245,7 @@ export const xssPage = renderPage(xss, {
     tabName: "XSS",
     cssLinks: `${globalCSS}${sidebarCSS}${xssCSS}`,
     cdnLinks: `${bootstrapCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}`
+    scripts: `${footerJS}${bootstrapJS}${sidebarJS}`
 });
 
 
@@ -257,7 +257,7 @@ export const fetchClientServerPage = renderPage(fetchClientServer, {
     tabName: "Fetch Client || Server",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 //redirection
@@ -266,7 +266,7 @@ export const redirectionPage = renderPage(redirection, {
     tabName: "Redirection: Client || Server",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 //structuring_html
@@ -275,7 +275,7 @@ export const structuringHTMLPage = renderPage(structuringHTML, {
     tabName: "Semantic HTML",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
 
 
@@ -287,5 +287,5 @@ export const clientServerRenderingPage = renderPage(clientServerRendering, {
     tabName: "Render: Client || Server",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${higlighterCDN}`,
-    scripts: `${sidebarJS}${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}`
+    scripts: `${footerJS}${bootstrapJS}${highlighterJS}${highlightAllJS}${sidebarJS}`
 });
