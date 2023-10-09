@@ -6,16 +6,6 @@ const app = express();
 app.use(express.json());
 app.use(express.static("public"));
 
-//==============CONNECTION===================
-const PORT = Number(process.env.PORT) || 8080;
-app.listen(PORT, (error) => {
-    if(error) {
-        console.log("Server failed to start.");
-        return;
-    }
-    console.log("Server is running on: " + PORT);
-});
-
 //==============READ PAGES===================
 
 import * as pages from "./util/makePages.js";
@@ -144,5 +134,13 @@ app.get("/client_server_rendering", (req, res) => {
     res.send(pages.clientServerRenderingPage)
 })
 
-
+//==============CONNECTION===================
+const PORT = Number(process.env.PORT) || 8080;
+app.listen(PORT, (error) => {
+    if(error) {
+        console.log("Server failed to start.");
+        return;
+    }
+    console.log("Server is running on: " + PORT);
+});
 
