@@ -72,6 +72,12 @@ app.get("/battlepokemon", (req, res) => {
         
 })
 
+app.post("/contact", (req,res) => {
+    console.log("OK Thanks for the message");
+    //res.send({ data: "Thanks for the message."});
+    res.redirect("/");
+})
+
 //console.log("Here:", process.env.PORT);
 //const PORT = 8080;
 //const PORT = Number(process.env.PORT);
