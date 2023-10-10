@@ -1,8 +1,10 @@
 <script>
-    import Child from "../Child/Child.svelte"
-
+    
     export let parentName;
     export let myChildren;
+
+    import Child from "../Child/Child.svelte"
+    import { fridgeMessages } from "../../store/fridgeMessages";
 
     $: cookieJar = ["🍪", "🍪", "🍪", "🍪", "🍪"];
 
@@ -23,11 +25,19 @@
         cookieJar = ["🍪", "🍪", "🍪", "🍪", "🍪"];
     }
 
+    function eraseFridgeMessage() {
+        fridgeMessages.set(["Fridge Messages Below"]);
+    }
+
+
 </script>
 
 <h1>{parentName}</h1>
 
 <p>{cookieJar}</p>
+
+<button on:click={eraseFridgeMessage}>Erase Message</button>
+<br>
 
 {#each myChildren as child}
     <Child child={child} onShowLove={handleShowLove} onEatCookie={handleEatCookie}/>
