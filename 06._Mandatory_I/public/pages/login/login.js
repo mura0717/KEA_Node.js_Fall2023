@@ -14,7 +14,7 @@ submitLoginForm.addEventListener("submit", (event) => {
     const givenUsername = document.getElementById("input-username").value;
     const givenPassword = document.getElementById("input-password").value;
 
-    if (savedPassword == givenUsername && savedPassword == givenPassword){
+    if (savedUsername === givenUsername && savedPassword === givenPassword){
         window.location.href = ("/admin");
     } else if (!givenUsername || !givenPassword){
         const errorText = document.getElementById("message")
