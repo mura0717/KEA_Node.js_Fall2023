@@ -16,7 +16,7 @@ const xssCSS = `<link rel="stylesheet" href="/pages/week5/XSS/XSS.css">`;
 //CDN Links
 const bootstrapCDN = `<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">`;
 const higlighterCDN = `<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">`;
-const toastrCDN =`<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">`
+const toastrCDN =`<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">`
 
 //Scripts
 const sidebarJS = `<script src="/components/sidebar/sidebar.js"></script>`;
@@ -28,8 +28,8 @@ integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cD
 crossorigin="anonymous"></script>`;
 const highlighterJS = `<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>`;
 const highlightAllJS = `<script>hljs.highlightAll();</script>`;
-const toastrJS = `<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>`;
 const jqueryJS = `<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>`;
+const toastrJS = `<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>`;
 
 //==========================PAGES RENDERED==========================
 
@@ -48,7 +48,7 @@ export const signupPage = renderPage(signup, {
     tabName: "Login",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${toastrCDN}`,
-    scripts: `${footerJS}${bootstrapJS}${signupJS}${sidebarJS}${toastrJS}${jqueryJS}`
+    scripts: `${footerJS}${bootstrapJS}${sidebarJS}${jqueryJS}${toastrJS}${signupJS}`
 });
 
 //login
@@ -57,7 +57,7 @@ export const loginPage = renderPage(login, {
     tabName: "Login",
     cssLinks: `${globalCSS}${sidebarCSS}`,
     cdnLinks: `${bootstrapCDN}${toastrCDN}`,
-    scripts: `${footerJS}${bootstrapJS}${sidebarJS}${toastrJS}${jqueryJS}${loginJS}`
+    scripts: `${footerJS}${bootstrapJS}${sidebarJS}${jqueryJS}${toastrJS}${loginJS}`
 });
 
 //admin

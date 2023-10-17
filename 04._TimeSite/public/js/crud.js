@@ -1,3 +1,7 @@
+toastr.options = {
+    "positionClass": "toast-top-center",
+};
+
 function playAlarm(time){
 
     const maxPlayTime = 10000; //Alarm duration: 10 sec.
@@ -39,7 +43,8 @@ async function createAlarm() {
     const newAlarm = document.getElementById("newAlarm").value;
 
     if (!newAlarm) {
-    alert("Please provide a time for the alarm.");
+    toastr.warning("Please provide a time for the alarm.");
+    //alert("Please provide a time for the alarm.");
     return;
     }
 
@@ -51,7 +56,8 @@ async function createAlarm() {
         body: JSON.stringify({alarm: newAlarm})
     })
     const data = await res.json();
-    alert(`Alarm created with Id: ${data.data.id} and time: ${data.data.alarm}`);
+    toastr.success(`Alarm created with Id: ${data.data.id} and time: ${data.data.alarm}`)
+    //alert(`Alarm created with Id: ${data.data.id} and time: ${data.data.alarm}`);
 
     const alarmTime = alarmHoursConverter(newAlarm);
     const currentTime = currentHoursConverter();
@@ -111,12 +117,14 @@ async function editAlarm() {
     const data = await res.json();
 
     if (res.status === 404) {
-    alert("Alarm not found.");
+    toastr.error("Alarm not found.")
+    //alert("Alarm not found.");
     return;
     }
 
     if (!editedTime) {
-    alert("Please provide a new time for the alarm.");
+    toastr.warning("Please provide a new time for the alarm.")
+    //alert("Please provide a new time for the alarm.");
     return;
     }
 
@@ -130,9 +138,11 @@ async function editAlarm() {
     });
 
     if (patchRes.status === 200) {
-    alert(`Alarm with Id: ${editAlarmId} edited to ${editedTime}`);
+    toastr.success(`Alarm with Id: ${editAlarmId} edited to ${editedTime}`)
+    //alert(`Alarm with Id: ${editAlarmId} edited to ${editedTime}`);
     } else {
-    alert("Failed to edit the alarm.");
+    toastr.error("Failed to edit the alarm.")
+    //alert("Failed to edit the alarm.");
     }
 }
 
@@ -142,7 +152,8 @@ async function deleteAlarm() {
     const data = await res.json();
 
     if (res.status === 404) {
-    alert("Alarm not found.");
+    toastr.error("Alarm not found.")
+    //alert("Alarm not found.");
     return;
     }
 
@@ -156,9 +167,12 @@ async function deleteAlarm() {
     });
 
     if (deleteRes.status === 200) {
-        alert(`${alarmProperties} is deleted.`);
+        toastr.info(`${alarmProperties} is deleted.`)
+        //alert(`${alarmProperties} is deleted.`);
     } else {
-        alert("Failed to delete the alarm.");
+        toastr.error("Failed to delete the alarm.")
+        //alert("Failed to delete the alarm.");
     }
 }
+
 }
