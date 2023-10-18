@@ -84,7 +84,6 @@ app.get("/battlepokemon", (req, res) => {
 app.post("/contact", (req,res) => {
     //console.log("OK Thanks for the message");
     //res.send({ data: "Thanks for the message."});
-    console.log(req.email)
 
      const output = `
     <p>You have a new contact request</p>
@@ -101,20 +100,17 @@ app.post("/contact", (req,res) => {
         port: 587,
         secure: false, 
         auth: {
-            user: 'ava.collins90@ethereal.email',
+            user: 'ava.collins90@ethereal.email', //host email
             pass: 'Kq7AXRrpkDXPH6nBQs'
         },
-        tls:{
-            rejectUnauthorized: false
-        }
           });
     
     const mailOptions = {
-        from: '"Pokemon Contact" <"ava.collins90@ethereal.email>',
-        to: "pokemonAdmin@lortemail.dk",
+        from: '"Pokemon Contact" <ava.collins90@ethereal.email>',
+        to: "pokemonAdmin@lortemail.dk", //where the message is sent from host that carries the msg
         subject: "New Contact Request",
         text: "This message just arrived:",
-        html: output
+        html: output //parsed html req post body/msg
     }; 
     
     transporter.sendMail(mailOptions, (error, info) => {
@@ -126,7 +122,6 @@ app.post("/contact", (req,res) => {
       });
     //res.redirect("/");
 })
-
 
 //=================== CONNECTION =================
 //console.log("Here:", process.env.PORT);
