@@ -10,8 +10,9 @@
   <div class="flex w-full flex-wrap items-center justify-between px-3">
     <!-- Home Icon -->
     <NavItemSpecial to="/" Link={Link} text="" />
-
+  
     <!-- Sign up -->
+    <Link to="/signup">
       <button
         type="button"
         data-te-ripple-init
@@ -20,6 +21,7 @@
       >
         Sign up
       </button>
+    </Link>
 
   </div>
 </nav>
