@@ -1,7 +1,8 @@
 <script>
   import { Router, Link, Route } from "svelte-navigator";
-  import LoginHome from "./pages/LoginHome/LoginHome.svelte";
   import NavBar from './components/NavBar.svelte';
+  import Home from "./pages/Home/Home.svelte";
+  import Login from "./pages/Login/Login.svelte";
   import SignUp from "./pages/SignUp/SignUp.svelte";
 </script>
 
@@ -10,7 +11,8 @@
   <NavBar {Link}/> <!-- Any link from NavBar comes in here.  -->
 
   <div>
-    <Route path="/" component={LoginHome}></Route>
+    <Route path="/" component={Home}></Route>
+    <Route path="/login" component={Login}></Route>
     <Route path="/signup" component={SignUp}></Route>
   </div>
 

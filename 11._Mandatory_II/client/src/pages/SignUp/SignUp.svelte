@@ -1,4 +1,4 @@
-<section class="gradient-form h-full bg-neutral-200 dark:bg-neutral-700">
+<section class="gradient-form min-h-screen min-w-screen bg-neutral-200 dark:bg-neutral-700">
   <div class="container h-full p-10">
     <div
       class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200"
@@ -10,9 +10,9 @@
             <div class="px-4 md:px-0 lg:w-6/12">
               <div class="md:mx-6 md:p-12">
                 <!--Logo-->
-                <div class="text-center mb-9">
+                <div class="text-center mt-3 mb-9">
                   <img
-                    class="mx-auto w-48"
+                    class="mx-auto w-36"
                     src="https://cdn-icons-png.flaticon.com/512/5728/5728078.png"
                     alt="logo"
                   />
