@@ -16,4 +16,5 @@ router.get("/users", (req, res) => {
   res.send({ data: users });
 });
 
+export { users };
 export default router;

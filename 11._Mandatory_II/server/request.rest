@@ -1,4 +1,4 @@
-1GET http://localhost:8080/users
+GET http://localhost:8080/users
 
 ###
 
@@ -6,9 +6,18 @@ POST http://localhost:8080/signup
 Content-Type: application/json
 
 {
-    "data": 
-        {
-        "username": "email1",
-        "password": "pass1"
-        }
+        "username": "email3",
+        "password": "pass3"
+}
+
+
+###
+
+
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+        "username": "email2",
+        "password": "pass2"
 }
