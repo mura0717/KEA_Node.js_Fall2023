@@ -34,7 +34,7 @@
       </a>
       <div class="flex items-center">
         <!-- Login -->
-        <Link to="/login">
+        <Link to="/auth/login">
           <button
             type="button"
             data-te-ripple-init
