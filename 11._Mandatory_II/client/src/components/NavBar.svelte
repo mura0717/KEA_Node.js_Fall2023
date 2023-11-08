@@ -45,7 +45,7 @@
           </button>
         </Link>
         <!-- Sign up -->
-        <Link to="/signup">
+        <Link to="/auth/signup">
           <button
             type="button"
             data-te-ripple-init

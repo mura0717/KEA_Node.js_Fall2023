@@ -1,3 +1,43 @@
+<script>
+  import { BASE_URL } from "../../store/global.js";
+  import { navigate } from "svelte-navigator";
+  import toast, { Toaster } from "svelte-french-toast";
+
+  let email = "";
+  let password = "";
+
+  function goToSignUp() {
+    navigate("/auth/signup");
+  }
+
+  async function handleLogin() {
+    console.log("Login clicked.");
+    if (!email || !password) {
+      toast.error("No empty fields.");
+    }
+    const response = await fetch($BASE_URL + "/api/auth/login", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: { email, password },
+      }),
+    });
+    if (!response.ok) {
+      toast.error("Error logging in.");
+      console.log(response.status);
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    } else {
+      toast.success("Login success.");
+      navigate("/auth/user");
+    }
+  }
+</script>
+
+<Toaster />
+
 <section
   class="gradient-form min-h-screen min-w-screen bg-neutral-200 dark:bg-neutral-700"
 >
@@ -21,38 +61,30 @@
                   <h4
                     class="mb-12 mt-1 pb-1 text-xl font-semibold outline-none"
                   >
-                    Welcome to (yet) Another Login Page
+                    Welcome to Login Page
                   </h4>
                 </div>
                 <form>
                   <p class="mb-4">Please login to your account</p>
-                  <!--Username input-->
+                  <!--Email input-->
                   <div class="relative mb-4" data-te-input-wrapper-init>
                     <input
-                      type="text"
-                      class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-1 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                      id="exampleFormControlInput1"
-                      placeholder="Username"
+                      type="email"
+                      class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-1 px-3 py-[0.32rem] leading-[1.6] outline-none"
+                      id="email-input"
+                      placeholder="Email"
+                      bind:value={email}
                     />
-                    <label
-                      for="exampleFormControlInput1"
-                      class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                      >Username
-                    </label>
                   </div>
                   <!--Password input-->
                   <div class="relative mb-4" data-te-input-wrapper-init>
                     <input
                       type="password"
-                      class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-1 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                      id="exampleFormControlInput11"
+                      class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-1 px-3 py-[0.32rem] leading-[1.6] outline-none"
+                      id="password-input"
                       placeholder="Password"
+                      bind:value={password}
                     />
-                    <label
-                      for="exampleFormControlInput11"
-                      class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
-                      >Password
-                    </label>
                   </div>
                   <!--Submit button-->
                   <div class="mb-12 pb-1 pt-1 text-center">
@@ -62,13 +94,16 @@
                       data-te-ripple-init
                       data-te-ripple-color="light"
                       style="
-                          background: linear-gradient(to left, #ff499e, #d264b6, #a480cf, #779be7, #49b6ff);
-                        "
+                          background: linear-gradient(to left, #ff499e, #d264b6, #a480cf, #779be7, #49b6ff);"
+                      on:click|preventDefault={handleLogin}
                     >
                       Log in
                     </button>
                     <!--Forgot password link-->
-                    <a href="#!">Forgot password?</a>
+                    <a
+                      href="https://media.giphy.com/media/FgjKGypLCAety/giphy.gif"
+                      target="_blank">Forgot password?</a
+                    >
                   </div>
                   <!--Register button-->
                   <div class="flex items-center justify-between pb-6">
@@ -78,6 +113,7 @@
                       class="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-danger-600 focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
                       data-te-ripple-init
                       data-te-ripple-color="light"
+                      on:click={goToSignUp}
                     >
                       Register
                     </button>

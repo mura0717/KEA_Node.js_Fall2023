@@ -1,5 +1,9 @@
 <script>
-  import { Link } from "svelte-navigator";
+  import { navigate } from "svelte-navigator";
+
+  function goToSecret() {
+    navigate("/auth/user/secret");
+  }
 </script>
 
 <div class="container min-h-screen min-w-screen my-12 mx-auto md:px-48">
@@ -36,12 +40,11 @@
       </div>
       <div class="mb-6 mt-36">
         <div class="relative overflow-hidden bg-cover bg-no-repeat">
-         <Link to="/auth/user/secret">
             <button type="button" 
-            class="text-lg font-bold">
+            class="text-lg font-bold"
+            on:click={goToSecret}>
             Your Secret
             </button>
-        </Link>
         </div>
       </div>
     </div>

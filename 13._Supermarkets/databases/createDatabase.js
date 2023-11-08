@@ -3,9 +3,7 @@ import db from "./connection.js";
 // TASK write SQL to create as Supermarket table, you decide on the design.
 // supermarkets_locations (naming conventions)
 
-const isDeleteMode = false;
-
-console.log(process.argv.findIndex((arg) => arg === "delete") !== -1? true : false);
+const isDeleteMode = process.argv.findIndex((arg) => arg === "delete") === -1 ? false : true;
 
 if(isDeleteMode) {
     await db.exec(`DROP TABLE IF EXISTS supermarktes;`);

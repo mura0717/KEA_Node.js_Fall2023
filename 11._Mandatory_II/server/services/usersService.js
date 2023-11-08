@@ -1,16 +1,32 @@
-import { db } from '../config/db/db.js'
+import { dbConnection } from "../config/database/connection.js";
 
-const allUsers = {
-    getAllUsers: (req, res) => {
-        db.query("SELECT * FROM users", (error, results) => {
-            if(error) {
-                console.log(error);
-                res.status(500).send("Error fetching all users.");
+const usersService = {
+    getAllUsers: async () => {
+        try {
+            const [results] = await dbConnection.query("SELECT * FROM users;"); 
+            return { allUsers: results, message: "All users fetched."};
+        }
+        catch (error) {
+            console.log(error);
+            return {message: "Error fetching all users."};
+        }
+    },
+    
+    getUserByEmail: async (userEmail) => {
+        try {
+            const result = await dbConnection.query('SELECT * FROM users WHERE email = ?', [userEmail]);
+            if(result.length > 0){
+                return {user: result[0], message: "User found."};
             } else {
-                res.send({ data: users });
+                return { user: null, message: 'User not found.' };
             }
-        })   
-    }    
-}
+        } catch (error) {
+            console.log(error);
+            return { message: 'Error fetching user by email.' };
+            }
+        }
+    };
 
-export { allUsers };
+    
+
+export default usersService;

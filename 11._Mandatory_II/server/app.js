@@ -2,7 +2,7 @@
 import "dotenv/config";
 
 // db connection
-import * as db from './config/db/db.js'
+import * as connection from './config/database/connection.js'
 
 // express setup
 import express from "express";
@@ -30,6 +30,8 @@ app.use(session({
 //routers
 import authRouter from "./routers/authRouter.js";
 app.use(authRouter);
+import usersRouter from "./routers/usersRouter.js";
+app.use(usersRouter);
 
 //app run
 const PORT = process.env.PORT || 8080;

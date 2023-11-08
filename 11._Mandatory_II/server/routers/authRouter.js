@@ -1,47 +1,49 @@
 import { Router } from "express";
 const router = Router();
-
-import authService from '../services/authService.js'
-import { allUsers } from "../services/usersService.js";
+import signupService from '../services/signupService.js'
+import usersService from "../services/usersService.js";
 import bcrypt from "bcrypt";
 
+
 //USER SIGNUP
-
-router.post("/signup", async (req, res) => {
+router.post("/api/auth/signup", async (req, res) => {
     try {
-        const salt = await bcrypt.genSalt();
-        const hashedPassword = await bcrypt.hash(req.body.password, salt); // ALT: const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        const newUser = { username: req.body.username, password: hashedPassword }
-        authService.register(newUser);
-        //allUsers.push(newUser);
-        res.status(200).send('New User registered successfully.');
-        //res.redirect("/users/login")
-
+        req.session.newUser = req.body.newUser;
+        const hashedPassword = await bcrypt.hash(req.body.newUser.password, 14); // ALT: const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        const newUser = { name: req.body.newUser.name, email: req.body.newUser.email, password: hashedPassword }
+        await signupService.registerUser(newUser);
+        res.status(200).json('User registered successfully.');
     } catch (error) {
-        console.error(error);
-        res.status(500).send('Error adding user.');
-        res.redirect("/signup")
+        console.error('Error in signup endpoint:', error);
+        res.status(500).json('Error registering user.');
     }
 })
 
 //USER LOGIN
-router.post('/auth/login', async (req, res) => {
-    const user = allUsers.find(user => user.username === req.body.username)
-    if (!user) {
-        return res.status(400).send("Cannot find user.")
-    }
+router.post('/api/auth/login', async (req, res) => {
+    req.session.user = req.body.user;
+    const userEmail = req.body.user.email;
+    const inputUserPassword = req.body.user.password;
+    const user = await usersService.getUserByEmail(userEmail);
+    const hashedUserPassword = user.user[0].password;
     try {
-        if (await bcrypt.compare(req.body.password, user.password)){
-            res.send("Login successful")
-        } else {
-            res.send("Login not allowed.")
+        const passwordCheck = await bcrypt.compare(inputUserPassword, hashedUserPassword);
+        if (passwordCheck === true) {
+            console.log(passwordCheck);
+            return { message: "Login successfull" };
         }
-    } catch{
-        res.status(500).send()
+    } 
+        catch (error) {
+        console.error(error, "Login fail.");
     }
 })
 
 //USER LOGOUT
+router.get("/users/logout", (req, res) => {
+    req.session.userID = undefined;
+    delete req.session.user;
+    res.send({ data: "You are logged out." });
+});
 
 export default router;
 

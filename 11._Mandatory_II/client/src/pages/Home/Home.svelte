@@ -18,7 +18,7 @@
                 <p class="mb-24 text-lg text-neutral-500 dark:text-neutral-100">
                   Full stack auth system with a web framework.
                   <br />
-                  Login to send a message. Not a user, do sign up first.
+                  Login to see your secret. Not a user, do sign up first.
                 </p>
               </div>
             </div>
