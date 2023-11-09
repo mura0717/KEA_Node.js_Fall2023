@@ -25,13 +25,13 @@
         user: { email, password },
       }),
     });
-    if (!response.ok) {
+    if (response.status === 200) {
+      toast.success("Login success.");
+      navigate("/auth/user");
+    } else {
       toast.error("Error logging in.");
       console.log(response.status);
       throw new Error(`HTTP error! Status: ${response.status}`);
-    } else {
-      toast.success("Login success.");
-      navigate("/auth/user");
     }
   }
 </script>

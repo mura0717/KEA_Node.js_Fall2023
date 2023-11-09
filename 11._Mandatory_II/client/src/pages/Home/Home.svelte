@@ -6,7 +6,6 @@
         style="background: linear-gradient(to left, #ff499e, #d264b6, #a480cf, #779be7, #49b6ff)"
       >
         <div class="g-0 lg:flex lg:flex-wrap">
-          <!-- Section: Design Block -->
           <section class="mb-32 text-center">
             <div class="flex justify-center">
               <div class="max-w-[800px]">
@@ -17,8 +16,8 @@
                 </h2>
                 <p class="mb-24 text-lg text-neutral-500 dark:text-neutral-100">
                   Full stack auth system with a web framework.
-                  <br />
-                  Login to see your secret. Not a user, do sign up first.
+                  <br/>
+                  Login to see your profile. Not a user, do sign up first.
                 </p>
               </div>
             </div>

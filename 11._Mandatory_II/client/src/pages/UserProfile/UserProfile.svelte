@@ -33,22 +33,14 @@
               />
             </svg>
           </div>
-          <div class="p-6">
-            <h5 class="mb-4 text-lg font-bold">User Name</h5>
-          </div>
         </div>
       </div>
-      <div class="mb-6 mt-36">
+      <div class="mb-6 p-6">
         <div class="relative overflow-hidden bg-cover bg-no-repeat">
-            <button type="button" 
-            class="text-lg font-bold"
-            on:click={goToSecret}>
-            Your Secret
-            </button>
+          <h5 class="mb-4 text-lg font-bold">Name</h5>
+          <h5 class="mb-4 text-lg font-bold">Email</h5>
         </div>
       </div>
     </div>
   </section>
-  <!-- Section: Design Block -->
 </div>
-<!-- Container for demo purpose -->

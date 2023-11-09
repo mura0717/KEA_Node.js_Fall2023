@@ -4,12 +4,11 @@
   import Home from "./pages/Home/Home.svelte";
   import Login from "./pages/Login/Login.svelte";
   import SignUp from "./pages/SignUp/SignUp.svelte";
-  import UserProfile from "./pages/Profile/UserProfile.svelte";
+  import UserProfile from "./pages/UserProfile/UserProfile.svelte";
   import Secret from "./pages/Secret/Secret.svelte"
 </script>
 
 <Router>
-
 
   <NavBar {Link}/> <!-- Any link from NavBar comes in here.  -->
 

@@ -61,7 +61,7 @@
                     <input
                       type="text"
                       class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-1 px-3 py-[0.32rem] leading-[1.6]"
-                      id="name"
+                      id="name-input"
                       placeholder="Your Name"
                       bind:value={name}
                     />
@@ -71,7 +71,7 @@
                     <input
                       type="email"
                       class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-1 px-3 py-[0.32rem] leading-[1.6] outline-none"
-                      id="email"
+                      id="email-input"
                       placeholder="Your Email"
                       bind:value={email}
                     />
@@ -81,7 +81,7 @@
                     <input
                       type="password"
                       class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-1 px-3 py-[0.32rem] leading-[1.6] outline-none"
-                      id="password"
+                      id="password-input"
                       placeholder="Password"
                       bind:value={password}
                     />

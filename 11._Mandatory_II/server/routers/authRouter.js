@@ -30,11 +30,12 @@ router.post('/api/auth/login', async (req, res) => {
         const passwordCheck = await bcrypt.compare(inputUserPassword, hashedUserPassword);
         if (passwordCheck === true) {
             console.log(passwordCheck);
-            return { message: "Login successfull" };
+            res.status(200).json('User logged in successfully.');
         }
     } 
         catch (error) {
-        console.error(error, "Login fail.");
+        console.error('Error in login endpoint:', error);
+        res.status(500).json('Error loggin in.');
     }
 })
 
