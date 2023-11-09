@@ -2,6 +2,7 @@
   import { BASE_URL } from "../../store/global.js";
   import { navigate } from "svelte-navigator";
   import toast, { Toaster } from "svelte-french-toast";
+  import { updateLoginStatus } from "../../store/loginStatus.js";
 
   let email = "";
   let password = "";
@@ -26,14 +27,19 @@
       }),
     });
     if (response.status === 200) {
+      updateLoginStatus();
       toast.success("Login success.");
-      navigate("/auth/user");
+      setTimeout(() => {
+      navigate("/auth/user/profile");
+    }, 1000);
     } else {
-      toast.error("Error logging in.");
       console.log(response.status);
+      updateLoginStatus();
+      toast.error("Incorrect credentials.");
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
   }
+  
 </script>
 
 <Toaster />

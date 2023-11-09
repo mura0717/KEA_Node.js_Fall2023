@@ -1,9 +1,26 @@
 <script>
+  import { BASE_URL } from "../../store/global.js";
+  import { onMount } from "svelte";
   import { navigate } from "svelte-navigator";
 
-  function goToSecret() {
-    navigate("/auth/user/secret");
-  }
+  let userName = "";
+
+  onMount(async () => {
+    try {
+      const response = await fetch($BASE_URL + "/api/auth/user/profile", {
+        credentials: "include",
+      });
+      if (response.ok) {
+        const data = await response.json();
+        userName = data.data.name;
+      } else {
+        console.error("Error fetching user profile: ", response.status);
+      }
+    } catch (error) {
+      console.error("Error fetching user profile:", error);
+    }
+  });
+
 </script>
 
 <div class="container min-h-screen min-w-screen my-12 mx-auto md:px-48">
@@ -33,12 +50,14 @@
               />
             </svg>
           </div>
+          <div class="p-3">
+            <h5 class="mb-4 text-lg font-bold">Hello "{userName}"</h5>
+          </div>
         </div>
       </div>
       <div class="mb-6 p-6">
         <div class="relative overflow-hidden bg-cover bg-no-repeat">
-          <h5 class="mb-4 text-lg font-bold">Name</h5>
-          <h5 class="mb-4 text-lg font-bold">Email</h5>
+          <h5 class="mb-4 text-lg font-bold">Notes:</h5>
         </div>
       </div>
     </div>

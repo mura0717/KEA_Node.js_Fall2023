@@ -23,8 +23,11 @@
     });
 
     if (response.status === 200) {
-      toast.success("User added successfully.");
-      navigate("/auth/login");
+      toast.success("SignUp Success.");
+      setTimeout(() => {
+      navigate("/api/auth/login");
+    }, 1000);
+      
     } else {
       toast.error("Error adding new user.");
     }
