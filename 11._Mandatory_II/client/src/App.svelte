@@ -4,21 +4,30 @@
   import Home from "./pages/Home/Home.svelte";
   import Login from "./pages/Login/Login.svelte";
   import SignUp from "./pages/SignUp/SignUp.svelte";
+
+  //Unprotected Routes
   import UserProfile from "./pages/UserProfile/UserProfile.svelte";
   import Admin from "./pages/Admin/Admin.svelte";
   import AllUsers from "./pages/AllUsers/AllUsers.svelte"
+  //Protected Routes
+  import PrivateRoute from "./components/privateRoutes/PrivateRoute.svelte";
 </script>
 
 <Router>
   <NavBar {Link}/> <!-- NavBar comes in here.  -->
 
   <div>
+    <!-- Public Routes -->
     <Route path="/" component={Home}></Route>
     <Route path="/auth/login" component={Login}></Route>
     <Route path="/auth/signup" component={SignUp}></Route>
-    <Route path="/auth/user/profile" component={UserProfile}></Route>
-    <Route path="/auth/admin" component={Admin}></Route>
-    <Route path="/auth/admin/allusers" component={AllUsers}></Route>
+    <!-- Private Routes -->
+    <PrivateRoute path="/auth/user/profile" let:location>
+      <UserProfile></UserProfile>
+    </PrivateRoute>
+    <PrivateRoute path="/auth/admin" let:location>
+      <Admin></Admin>
+    </PrivateRoute>
   </div>
 
 </Router>
