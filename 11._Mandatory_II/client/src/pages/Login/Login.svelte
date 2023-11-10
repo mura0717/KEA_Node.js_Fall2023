@@ -3,6 +3,8 @@
   import { navigate } from "svelte-navigator";
   import toast, { Toaster } from "svelte-french-toast";
   import { updateLoginStatus } from "../../store/loginStatus.js";
+  import { updateAdminStatus } from "../../store/adminStatus.js";
+  import { isAdmin } from './../../store/adminStatus.js';
 
   let email = "";
   let password = "";
@@ -28,10 +30,20 @@
     });
     if (response.status === 200) {
       updateLoginStatus();
-      toast.success("Login success.");
+      updateAdminStatus();
+      if ($isAdmin === false) {
+        toast.success("User login success.");
       setTimeout(() => {
       navigate("/auth/user/profile");
     }, 1000);
+      } else if ($isAdmin === true){
+        toast.success("Admin login success.");
+      setTimeout(() => {
+      navigate("/auth/admin");
+    }, 1000);
+      }
+
+      
     } else {
       console.log(response.status);
       updateLoginStatus();

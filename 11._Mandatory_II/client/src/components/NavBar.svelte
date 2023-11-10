@@ -2,7 +2,8 @@
   import { BASE_URL } from '../store/global.js';
 	import { isLoggedIn } from '../store/loginStatus.js';
   import { navigate } from "svelte-navigator";
-  import toast, { Toaster } from "svelte-french-toast"; 
+  import toast, { Toaster } from "svelte-french-toast";
+  
   export let Link;
 
   async function handleLogout () {

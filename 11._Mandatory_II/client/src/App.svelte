@@ -5,8 +5,8 @@
   import Login from "./pages/Login/Login.svelte";
   import SignUp from "./pages/SignUp/SignUp.svelte";
   import UserProfile from "./pages/UserProfile/UserProfile.svelte";
-  import AdminProfile from "./pages/AdminProfile/AdminProfile.svelte";
-  import Secret from "./pages/Secret/Secret.svelte"
+  import Admin from "./pages/Admin/Admin.svelte";
+  import AllUsers from "./pages/AllUsers/AllUsers.svelte"
 </script>
 
 <Router>
@@ -17,8 +17,8 @@
     <Route path="/auth/login" component={Login}></Route>
     <Route path="/auth/signup" component={SignUp}></Route>
     <Route path="/auth/user/profile" component={UserProfile}></Route>
-    <Route path="/auth/admin" component={AdminProfile}></Route>
-    <Route path="/auth/admin/secret" component={Secret}></Route>
+    <Route path="/auth/admin" component={Admin}></Route>
+    <Route path="/auth/admin/allusers" component={AllUsers}></Route>
   </div>
 
 </Router>

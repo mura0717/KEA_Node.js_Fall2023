@@ -38,7 +38,7 @@ import usersRouter from "./routers/usersRouter.js";
 app.use(usersRouter);
 
 //protected routers
-import protectedRouters from "./routers/protectedRouters.js"
+import protectedRouters from "./routers/loginCheckRouters.js"
 app.use(protectedRouters);
 
 //app run
