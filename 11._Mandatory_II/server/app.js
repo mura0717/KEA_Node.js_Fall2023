@@ -1,6 +1,7 @@
 // environmental variables
 import "dotenv/config";
 
+
 // db connection
 import * as connection from './config/database/connection.js'
 
@@ -29,6 +30,8 @@ app.use(session({
     cookie: { secure: false }
 }));
 
+app.use(bodyParser.json())
+
 //routers
 import authRouter from "./routers/authRouter.js";
 app.use(authRouter);
@@ -39,6 +42,7 @@ app.use(usersRouter);
 
 //protected routers
 import protectedRouters from "./routers/loginCheckRouters.js"
+import bodyParser from "body-parser";
 app.use(protectedRouters);
 
 //app run

@@ -34,8 +34,9 @@ router.post("/api/auth/login", async (req, res) => {
       hashedUserPassword
     );
     if (passwordCheck === true) {
-      req.session.user = user.user[0]; // Store user data in the session
-      res.status(200).json({ message: "User logged in successfully." });
+      const userObj = user.user[0];
+      req.session.user = userObj; // Store user data in the session
+      res.send({ userObj });
     } else {
       res.status(401).json({ error: "Invalid credentials." });
     }

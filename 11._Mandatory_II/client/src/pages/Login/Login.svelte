@@ -1,10 +1,9 @@
 <script>
-  import { BASE_URL } from "../../store/global.js";
+	import { BASE_URL } from "../../store/global.js";
   import { navigate } from "svelte-navigator";
   import toast, { Toaster } from "svelte-french-toast";
   import { updateLoginStatus } from "../../store/loginStatus.js";
-  import { updateAdminStatus } from "../../store/adminStatus.js";
-  import { isAdmin } from './../../store/adminStatus.js';
+  import {user} from "../../store/usersStore.js"
 
   let email = "";
   let password = "";
@@ -29,14 +28,16 @@
       }),
     });
     if (response.status === 200) {
+      const userObj = (await response.json()).userObj;
+      user.set(userObj)
+      console.log($user.isAdmin)
       updateLoginStatus();
-      updateAdminStatus();
-      if ($isAdmin === false) {
+      if ($user.isAdmin == 0) {
         toast.success("User login success.");
       setTimeout(() => {
-      navigate("/auth/user/profile");
-    }, 1000);
-      } else if ($isAdmin === true){
+        navigate("/auth/user/profile");
+      }, 1000);
+      } else if ($user.isAdmin == 1){
         toast.success("Admin login success.");
       setTimeout(() => {
       navigate("/auth/admin");

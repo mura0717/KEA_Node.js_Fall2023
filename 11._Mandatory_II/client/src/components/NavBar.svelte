@@ -3,7 +3,8 @@
 	import { isLoggedIn } from '../store/loginStatus.js';
   import { navigate } from "svelte-navigator";
   import toast, { Toaster } from "svelte-french-toast";
-  
+  import { user } from "../store/usersStore.js";
+
   export let Link;
 
   async function handleLogout () {
@@ -14,7 +15,8 @@
           "Content-Type": "application/json",
         }
       });
-      isLoggedIn.set(false)
+      isLoggedIn.set(false);
+      user.set(null);
       toast.success("Logout success.")
       navigate("/");
   }

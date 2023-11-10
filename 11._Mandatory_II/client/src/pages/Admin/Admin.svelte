@@ -7,17 +7,17 @@
 </script>
 
 <section
-  class="gradient-form bg-neutral-200 dark:bg-neutral-700" style="height: 600px; width: 1200px;"
+  class="gradient-form bg-neutral-200 dark:bg-neutral-700"
 >
   <div class="container h-full p-10">
     <div
       class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200" 
     >
       <div class="w-full">
-        <div class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800" style="height: 500px;">
+        <div class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
           <div class="g-0 lg:flex lg:flex-wrap">
             <div
-              class="container min-h-screen min-w-screen my-12 mx-auto md:px-24"
+              class="container min-h-screen min-w-screen my-12 mx-auto md:px-48"
             >
               <section class="mb-32 text-center">
                 <h2 class="mb-12 text-3xl font-bold outline-none">
