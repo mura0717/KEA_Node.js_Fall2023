@@ -13,9 +13,9 @@
   }
 
   async function handleLogin() {
-    console.log("Login clicked.");
     if (!email || !password) {
       toast.error("No empty fields.");
+      return;
     }
     const response = await fetch($BASE_URL + "/api/auth/login", {
       credentials: "include",
@@ -43,8 +43,6 @@
       navigate("/auth/admin");
     }, 1000);
       }
-
-      
     } else {
       console.log(response.status);
       updateLoginStatus();
@@ -57,12 +55,10 @@
 
 <Toaster />
 
-<section
-  class="gradient-form min-h-screen min-w-screen bg-neutral-200 dark:bg-neutral-700"
->
-  <div class="container h-full p-10">
+<section class="bg-neutral-200 dark:bg-neutral-700">
+  <div class="container w-full p-5">
     <div
-      class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200"
+      class="g-6 flex flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200"
     >
       <div class="w-full">
         <div class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
@@ -71,9 +67,9 @@
             <div class="px-4 md:px-0 lg:w-6/12">
               <div class="md:mx-6 md:p-12">
                 <!--Logo-->
-                <div class="text-center">
+                <div class="text-center mt-3 mb-9">
                   <img
-                    class="mx-auto w-48"
+                    class="mx-auto w-36"
                     src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
                     alt="logo"
                   />

@@ -10,6 +10,7 @@
   async function handleSignUp() {
     if (!name || !email || !password) {
       toast.error("No empty fields.");
+      return;
     }
     const response = await fetch($BASE_URL + "/api/auth/signup", {
       credentials: "include",
@@ -36,10 +37,9 @@
 
 <Toaster />
 
-<section
-  class="gradient-form min-h-screen min-w-screen bg-neutral-200 dark:bg-neutral-700"
->
-  <div class="container h-full p-10">
+
+<section class="bg-neutral-200 dark:bg-neutral-700">
+  <div class="container w-full p-5">
     <div
       class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200"
     >

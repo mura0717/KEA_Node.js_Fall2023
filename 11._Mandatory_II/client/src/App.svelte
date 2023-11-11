@@ -4,12 +4,8 @@
   import Home from "./pages/Home/Home.svelte";
   import Login from "./pages/Login/Login.svelte";
   import SignUp from "./pages/SignUp/SignUp.svelte";
-
-  //Unprotected Routes
   import UserProfile from "./pages/UserProfile/UserProfile.svelte";
   import Admin from "./pages/Admin/Admin.svelte";
-  import AllUsers from "./pages/AllUsers/AllUsers.svelte"
-  //Protected Routes
   import PrivateRoute from "./components/privateRoutes/PrivateRoute.svelte";
 </script>
 
@@ -28,6 +24,7 @@
     <PrivateRoute path="/auth/admin" let:location>
       <Admin></Admin>
     </PrivateRoute>
+
   </div>
 
 </Router>

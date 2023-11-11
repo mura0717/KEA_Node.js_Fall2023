@@ -1,6 +1,5 @@
 import { Router } from "express";
 const router = Router();
-import { requireLogin } from "../middleware/loginCheckMiddleware.js"
 
 router.get('/auth/admin', (req, res) => {
   const isAdmin = req.session.user.isAdmin;

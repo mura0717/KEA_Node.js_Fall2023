@@ -1,24 +1,24 @@
 <script>
-  import { BASE_URL } from '../store/global.js';
-	import { isLoggedIn } from '../store/loginStatus.js';
+  import { BASE_URL } from "../store/global.js";
+  import { isLoggedIn } from "../store/loginStatus.js";
   import { navigate } from "svelte-navigator";
   import toast, { Toaster } from "svelte-french-toast";
   import { user } from "../store/usersStore.js";
 
   export let Link;
 
-  async function handleLogout () {
+  async function handleLogout() {
     const response = await fetch($BASE_URL + "/api/auth/logout", {
-        credentials: "include",
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        }
-      });
-      isLoggedIn.set(false);
-      user.set(null);
-      toast.success("Logout success.")
-      navigate("/");
+      credentials: "include",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    isLoggedIn.set(false);
+    user.set(null);
+    toast.success("Logout success.");
+    navigate("/");
   }
 
 </script>
@@ -36,6 +36,7 @@
   >
     <div class="flex w-full flex-wrap items-center justify-between px-3">
       <!-- Home Icon -->
+      {#if !$isLoggedIn}
       <a
         class="mx-2 my-1 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 lg:mb-0 lg:mt-0"
         href="/"
@@ -56,6 +57,7 @@
           />
         </svg>
       </a>
+      {/if}
       <div class="flex items-center">
         {#if !$isLoggedIn}
           <!-- Login -->
@@ -85,16 +87,16 @@
         {/if}
         <!-- Log out -->
         {#if $isLoggedIn}
-            <button
-              type="button"
-              data-te-ripple-init
-              data-te-ripple-color="light"
-              class="mr-3 font-semibold inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-              id="logout-button"
-              on:click={handleLogout}
-            >
-              Logout
-            </button>
+          <button
+            type="button"
+            data-te-ripple-init
+            data-te-ripple-color="light"
+            class="mr-3 font-semibold inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] motion-reduce:transition-none dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+            id="logout-button"
+            on:click={handleLogout}
+          >
+            Logout
+          </button>
         {/if}
       </div>
     </div>

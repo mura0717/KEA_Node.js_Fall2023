@@ -11,12 +11,4 @@ router.get("/api/auth/user/profile", async (req, res) => {
   }
 });
 
-router.get('/test-session', (req, res) => {
-  if (req.session.user) {
-    res.status(200).json({ sessionData: req.session.user });
-  } else {
-    res.status(404).json({ error: 'No session data found' });
-  }
-});
-
 export default router;

@@ -1,7 +1,6 @@
 // environmental variables
 import "dotenv/config";
 
-
 // db connection
 import * as connection from './config/database/connection.js'
 
@@ -10,6 +9,9 @@ import express from "express";
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+import bodyParser from "body-parser";
+app.use(bodyParser.json())
 
 import helmet from "helmet";
 app.use(helmet());
@@ -30,10 +32,8 @@ app.use(session({
     cookie: { secure: false }
 }));
 
-app.use(bodyParser.json())
-
 //routers
-import authRouter from "./routers/authRouter.js";
+import authRouter from "./routers/authRouters.js";
 app.use(authRouter);
 
 //usersRouters
@@ -41,9 +41,12 @@ import usersRouter from "./routers/usersRouter.js";
 app.use(usersRouter);
 
 //protected routers
-import protectedRouters from "./routers/loginCheckRouters.js"
-import bodyParser from "body-parser";
+import protectedRouters from "./routers/loginCheckRouter.js"
 app.use(protectedRouters);
+
+//email
+import emailRouter from "./routers/emailRouter.js"
+app.use(emailRouter);
 
 //app run
 const PORT = process.env.PORT || 8080;

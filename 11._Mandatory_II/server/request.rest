@@ -1,25 +1,14 @@
-GET http://localhost:8080/users
 
-###
-POST http://localhost:8080/signup
-Content-Type: application/json
-
-{
-        "username": "email3",
-        "password": "pass3"
-}
-
-###
-POST http://localhost:8080/login
-Content-Type: application/json
-
-{
-        "username": "email2",
-        "password": "pass2"
-}
-
-###
 GET http://localhost:8080/api/auth/user/profile
 
 ###
-GET http://localhost:8080/test-session
+GET http://localhost:8080/api/auth/admin
+
+###
+POST http://localhost:8080/api/auth/user/profile/contact
+credentials: "include"
+Content-Type: application/json
+
+{
+        "message": "test"
+}
