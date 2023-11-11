@@ -3,7 +3,6 @@ const router = Router();
 
 router.get('/auth/admin', (req, res) => {
   const isAdmin = req.session.user.isAdmin;
-  console.log(isAdmin);
   if(isAdmin === "1") {
     res.status(200).json({ message: 'Admin'});
   } else {

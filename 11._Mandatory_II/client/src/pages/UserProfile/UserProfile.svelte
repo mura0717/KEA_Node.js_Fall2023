@@ -25,7 +25,6 @@
       },
       body: JSON.stringify({ message }),
     });
-    console.log("After Fetch");
     if (response.status === 200) {
       toast.success("Thank you for contacting us.");
     } else {
@@ -33,8 +32,6 @@
       toast.error("Error sending message.");
     }
     message = "";
-    console.log("message:", message);
-    console.log($BASE_URL + "/api/auth/user/profile/contact");
   }
 </script>
 

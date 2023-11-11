@@ -28,9 +28,9 @@
       }),
     });
     if (response.status === 200) {
+      console.log(response)
       const userObj = (await response.json()).userObj;
       user.set(userObj)
-      console.log($user.isAdmin)
       updateLoginStatus();
       if ($user.isAdmin == 0) {
         toast.success("User login success.");
