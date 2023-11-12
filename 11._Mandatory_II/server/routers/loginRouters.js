@@ -45,7 +45,7 @@ router.get("/api/auth/logout", (req, res) => {
 router.get('/api/auth/login/guard', requireLogin, (req, res) => {
   const user = req.session.user;
   if(user) {
-    res.status(200).json({ status: 200 });
+    res.status(200).json({ status: 200, message: "Logged in succesfully." });
   } else {
     res.send(401).json({ message: 'Not logged in.'});
   }

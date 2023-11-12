@@ -15,7 +15,7 @@ router.post("/api/auth/signup", async (req, res) => {
       password: hashedPassword,
     };
     await signupService.registerUser(newUser);
-    res.send(200).json("User registered successfully.");
+    res.status(200).json({ status: 200, message: "User registered successfully." });
   } catch (error) {
     console.error("Error in signup endpoint:", error);
     res.send(500).json("Error registering user.");

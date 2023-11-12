@@ -1,5 +1,4 @@
 <script>
-  import { BASE_URL } from "../../store/global.js";
   import { getRequest } from '../../store/fetchStore.js';
   import { isLoggedIn } from "../../store/loginStatus.js";
   import { navigate } from "svelte-navigator";

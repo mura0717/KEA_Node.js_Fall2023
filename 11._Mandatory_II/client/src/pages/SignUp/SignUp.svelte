@@ -1,5 +1,5 @@
 <script>
-  import { BASE_URL } from "../../store/global.js";
+  import { postRequest } from '../../store/fetchStore.js';
   import { navigate } from "svelte-navigator";
   import toast, { Toaster } from "svelte-french-toast";
 
@@ -17,7 +17,12 @@
       return;
     }
     try {
-      const response = await fetch($BASE_URL + "/api/auth/signup", {
+      const userData = {
+      newUser: { name, email, password },
+    };
+
+    const response = await postRequest("/api/auth/signup", userData);
+      /* const response = await fetch($BASE_URL + "/api/auth/signup", {
         credentials: "include",
         method: "POST",
         headers: {
@@ -26,7 +31,7 @@
         body: JSON.stringify({
           newUser: { name, email, password },
         }),
-      });
+      }); */
 
       if (response.status === 200) {
         toast.success("Sign up Success.");
