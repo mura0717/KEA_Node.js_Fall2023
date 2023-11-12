@@ -1,42 +1,46 @@
 <script>
-	import { BASE_URL } from "../../store/global.js";
+  import { BASE_URL } from "../../store/global.js";
   import { navigate } from "svelte-navigator";
-	import toast, { Toaster } from 'svelte-french-toast';
+  import toast, { Toaster } from "svelte-french-toast";
 
-  let name = '';
-  let email = '';
-  let password = '';
+  let name = "";
+  let email = "";
+  let password = "";
+
+  function goToTerms() {
+    navigate("/auth/signup/terms");
+  }
 
   async function handleSignUp() {
     if (!name || !email || !password) {
       toast.error("No empty fields.");
       return;
     }
-    const response = await fetch($BASE_URL + "/api/auth/signup", {
-      credentials: "include",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ 
-        newUser:{ name, email, password }
-      })
-    });
+    try {
+      const response = await fetch($BASE_URL + "/api/auth/signup", {
+        credentials: "include",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          newUser: { name, email, password },
+        }),
+      });
 
-    if (response.status === 200) {
-      toast.success("SignUp Success.");
-      setTimeout(() => {
-      navigate("/api/auth/login");
-    }, 1000);
-      
-    } else {
-      toast.error("Error adding new user.");
+      if (response.status === 200) {
+        toast.success("Sign up Success.");
+        navigate("/auth/login");
+      } else {
+        toast.error("Error adding new user.");
+      }
+    } catch (error) {
+      throw new Error(`HTTP error! Status: ${error}`);
     }
   }
 </script>
 
 <Toaster />
-
 
 <section class="bg-neutral-200 dark:bg-neutral-700">
   <div class="container w-full p-5">
@@ -58,7 +62,7 @@
                   />
                 </div>
                 <form>
-                  <p class="mb-4">Please register an account</p>
+                  <h5 class="mb-4">Please register an account</h5>
                   <!--Name input-->
                   <div class="relative mb-4" data-te-input-wrapper-init>
                     <input
@@ -108,10 +112,8 @@
                       <div
                         class="inline-block pl-[0.15rem] hover:cursor-pointer"
                       >
-                        By signing up, I agree all in <a
-                          href="https://i.imgur.com/EZVDzF2.jpeg"
-                          target="_blank">Terms of service</a
-                        >
+                        By signing up, I agree all in
+                        <a href={""} on:click={goToTerms}>Terms of service</a>
                       </div>
                     </div>
                   </div>

@@ -14,7 +14,7 @@
                 Full Stack with NodeJS 'Mandatory II'
               </h2>
               <p class="mb-24 text-lg text-neutral-500 dark:text-neutral-100">
-                Full stack auth system with a web framework.
+                A full stack auth system with a web framework.
                 <br />
                 Login to your profile to contact us.
                 <br />

@@ -1,15 +1,16 @@
-// environmental variables
+//===================ENV VARIABLES===================//
 import "dotenv/config";
 
-// db connection
+//===================DATABASE===================//
 import * as connection from './config/database/connection.js'
 
-// express setup
+//===================EXPRESS SETUP===================//
 import express from "express";
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+//===================DEPENDENCIES===================//
 import bodyParser from "body-parser";
 app.use(bodyParser.json())
 
@@ -32,22 +33,23 @@ app.use(session({
     cookie: { secure: false }
 }));
 
-//routers
-import authRouter from "./routers/authRouters.js";
-app.use(authRouter);
+//===================ROUTERS===================//
 
-//usersRouters
+import signupRouter from "./routers/signupRouter.js"
+app.use(signupRouter);
+
+import loginRouters from "./routers/loginRouters.js";
+app.use(loginRouters);
+
 import usersRouter from "./routers/usersRouter.js";
 app.use(usersRouter);
 
-//protected routers
-import protectedRouters from "./routers/loginCheckRouter.js"
-app.use(protectedRouters);
+import adminRouters from "./routers/adminRouters.js";
+app.use(adminRouters);
 
-//email
 import emailRouter from "./routers/emailRouter.js"
 app.use(emailRouter);
 
-//app run
+//===================EXPRESS APP===================//
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log("Server is running on port ", PORT))

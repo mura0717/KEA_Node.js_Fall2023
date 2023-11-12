@@ -1,9 +1,9 @@
 <script>
-	import { BASE_URL } from "../../store/global.js";
+  import { postRequest } from "../../store/fetchStore.js";
   import { navigate } from "svelte-navigator";
-  import toast, { Toaster } from "svelte-french-toast";
+  import { user } from "../../store/usersStore.js";
   import { updateLoginStatus } from "../../store/loginStatus.js";
-  import {user} from "../../store/usersStore.js"
+  import toast, { Toaster } from "svelte-french-toast";
 
   let email = "";
   let password = "";
@@ -12,45 +12,36 @@
     navigate("/auth/signup");
   }
 
+  function goToForgotPassword() {
+    navigate("/auth/login/forgotpassword");
+  }
+
   async function handleLogin() {
     if (!email || !password) {
       toast.error("No empty fields.");
       return;
     }
-    const response = await fetch($BASE_URL + "/api/auth/login", {
-      credentials: "include",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user: { email, password },
-      }),
-    });
-    if (response.status === 200) {
-      console.log(response)
-      const userObj = (await response.json()).userObj;
-      user.set(userObj)
+    try {
+      const userData = { user: { email, password } };
+      const loginResponse = await postRequest("/api/auth/login", userData);
+      const userObj = loginResponse.userObj;
+      user.set(userObj);
+      console.log(loginResponse)
       updateLoginStatus();
       if ($user.isAdmin == 0) {
         toast.success("User login success.");
-      setTimeout(() => {
         navigate("/auth/user/profile");
-      }, 1000);
-      } else if ($user.isAdmin == 1){
+      } else if ($user.isAdmin == 1) {
         toast.success("Admin login success.");
-      setTimeout(() => {
-      navigate("/auth/admin");
-    }, 1000);
+        navigate("/auth/admin");
+      } else {
+        updateLoginStatus();
+        toast.error("Incorrect credentials.");
       }
-    } else {
-      console.log(response.status);
-      updateLoginStatus();
-      toast.error("Incorrect credentials.");
-      throw new Error(`HTTP error! Status: ${response.status}`);
+    } catch (error) {
+      throw new Error(`HTTP error! Status: ${error}`);
     }
   }
-  
 </script>
 
 <Toaster />
@@ -115,9 +106,8 @@
                       Log in
                     </button>
                     <!--Forgot password link-->
-                    <a
-                      href="https://media.giphy.com/media/FgjKGypLCAety/giphy.gif"
-                      target="_blank">Forgot password?</a
+                    <a href={""} on:click={goToForgotPassword}
+                      >Forgot password?</a
                     >
                   </div>
                   <!--Register button-->

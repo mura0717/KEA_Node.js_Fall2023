@@ -12,7 +12,6 @@
   });
 
   async function handleMessageSubmit() {
-    console.log("Send clicked.");
     if (!message) {
       toast.error("No empty messages.");
       return;
@@ -28,8 +27,8 @@
     if (response.status === 200) {
       toast.success("Thank you for contacting us.");
     } else {
-      console.log("Error Status: ", response.status);
       toast.error("Error sending message.");
+      throw new Error(`Error sending message. Status: ${response.status}`);
     }
     message = "";
   }
@@ -53,7 +52,7 @@
                 Welcome " {userName} "
               </h2>
               <h5 class="mb-12 outline-none">
-                Use the form below to contact us.
+                Use the form here to contact us.
               </h5>
               <div class="container mx-auto md:px-48">
                 <div

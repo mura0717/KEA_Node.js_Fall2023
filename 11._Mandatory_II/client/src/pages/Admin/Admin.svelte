@@ -1,25 +1,17 @@
 <script>
-  import { BASE_URL } from "../../store/global.js";
   import toast, { Toaster } from "svelte-french-toast";
+  import { getRequest } from "../../store/fetchStore.js";
 
   let allUsers = [];
 
   async function getAllUsers() {
     try {
-      const response = await fetch($BASE_URL + "/api/auth/admin", {
-        credentials: "include",
-        method: "GET",
-      });
-      if (!response.ok) {
-        throw new Error(`Failed to fetch users. Status: ${response.status}`);
-      }
-      const fetchedResults = await response.json();
-      allUsers = fetchedResults.data;
+      const fetchedResults = await getRequest("/api/auth/admin")
+      allUsers = fetchedResults.data
     } catch (error) {
       toast("Error fetching users", {
         icon: "😢",
       });
-      throw new Error("Error fetching users:", error);
     }
   }
 </script>
