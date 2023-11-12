@@ -15,20 +15,18 @@ router.get("/api/auth/user/profile", async (req, res) => {
 
 // All users fetch
 router.get("/api/auth/admin", requireAdmin, async (req, res) => {
-  console.log("getAllUsers endpoint hit");
   try {
     const results = await usersService.getAllUsers();
-    console.log(results.allUsers);
     if (results.allUsers && results.allUsers.length >= 0) {
       res
         .status(200)
         .json({ data: results.allUsers, message: "All users fetched." });
     } else {
-      res.send(404).json({ message: "No users found." });
+      res.status(404).json({ status: 404, message: "No users found." });
     }
   } catch (error) {
     console.error("Error fetching users:", error);
-    res.send(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ status: 500, message: "Internal Server Error" });
   }
 });
 

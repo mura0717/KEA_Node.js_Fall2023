@@ -17,22 +17,8 @@
       return;
     }
     try {
-      const userData = {
-      newUser: { name, email, password },
-    };
-
+      const userData = { newUser: { name, email, password } };
     const response = await postRequest("/api/auth/signup", userData);
-      /* const response = await fetch($BASE_URL + "/api/auth/signup", {
-        credentials: "include",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          newUser: { name, email, password },
-        }),
-      }); */
-
       if (response.status === 200) {
         toast.success("Sign up Success.");
         navigate("/auth/login");

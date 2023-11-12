@@ -1,4 +1,4 @@
-import { dbConnection } from "../config/database/connection.js";
+import dbConnection from "../config/database/dbConnection.js";
 
 const usersService = {
     getAllUsers: async () => {

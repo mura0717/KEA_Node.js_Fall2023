@@ -2,7 +2,9 @@
 import "dotenv/config";
 
 //===================DATABASE===================//
-import * as connection from './config/database/connection.js'
+import * as connection from './config/database/dbConnection.js'
+import { setupDatabase } from "./config/database/createDatabase.js";
+//setupDatabase(); //uncomment to create tables with dummy data.
 
 //===================EXPRESS SETUP===================//
 import express from "express";
