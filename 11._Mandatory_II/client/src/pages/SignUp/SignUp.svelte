@@ -41,14 +41,14 @@
 <section class="bg-neutral-200 dark:bg-neutral-700">
   <div class="container w-full p-5">
     <div
-      class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200"
+      class="g-6 flex flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200"
     >
       <div class="w-full">
         <div class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
           <div class="g-0 lg:flex lg:flex-wrap">
             <!-- Left column container-->
             <div class="px-4 md:px-0 lg:w-6/12">
-              <div class="md:mx-6 md:p-12">
+              <div class="md:mx-6 md:p-12 md:px-24">
                 <!--Logo-->
                 <div class="text-center mt-3 mb-9">
                   <img
@@ -127,7 +127,7 @@
               <div class="px-4 py-6 text-white md:mx-6 md:p-12">
                 <img
                   src="https://scribie.com/assets/front/illustrations/Welcome-to-scribie-512x391.svg"
-                  class="w-full"
+                  class="w-screen"
                   alt=""
                 />
               </div>

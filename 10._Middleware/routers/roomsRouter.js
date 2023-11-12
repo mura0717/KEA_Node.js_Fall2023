@@ -9,7 +9,7 @@ function butler(req, res, next){
 router.get("/room", butler, (req, res, next) => {
     console.log("Room 1");
     next();
-    // res.send({ data: "This is room 1" });
+    //res.send({ data: "This is room 1" });
 });
 
 router.get("/room", (req, res, next) => {
@@ -18,7 +18,7 @@ router.get("/room", (req, res, next) => {
 }, (req, res, next) => {
     console.log("Room 2");
     // next();
-    res.send({ data: "This is room 2" });
+    //res.send({ data: "This is room 2" });
 });
 
 router.get("/room/*", (req, res, next) => {

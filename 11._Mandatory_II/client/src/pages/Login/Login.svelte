@@ -65,7 +65,7 @@
           <div class="g-0 lg:flex lg:flex-wrap">
             <!-- Left column container-->
             <div class="px-4 md:px-0 lg:w-6/12">
-              <div class="md:mx-6 md:p-12">
+              <div class="md:mx-6 md:p-12 md:px-24">
                 <!--Logo-->
                 <div class="text-center mt-3 mb-9">
                   <img
@@ -144,7 +144,7 @@
               <div class="px-4 py-6 text-white md:mx-6 md:p-12">
                 <img
                   src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                  class="w-full"
+                  class="w-screen"
                   alt=""
                 />
               </div>

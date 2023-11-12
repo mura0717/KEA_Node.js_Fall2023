@@ -36,6 +36,7 @@ router.post("/api/auth/login", async (req, res) => {
     );
     if (passwordCheck === true) {
       const userObj = user.user[0];
+      userObj.isAdmin = Number(userObj.isAdmin) === 1 ? 1 : 0;
       req.session.user = userObj; // Store user data in the session
       res.send({ userObj });
     } else {
