@@ -1,5 +1,6 @@
 <script>
   import { BASE_URL } from "../../store/global.js";
+  import { getRequest } from '../../store/fetchStore.js';
   import { isLoggedIn } from "../../store/loginStatus.js";
   import { navigate } from "svelte-navigator";
   import toast, { Toaster } from "svelte-french-toast";
@@ -27,18 +28,18 @@
   } 
 
   async function handleLogout() {
-    const response = await fetch($BASE_URL + "/api/auth/logout", {
-      credentials: "include",
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    try {
+      const response = await getRequest("/api/auth/logout");
     isLoggedIn.set(false);
     user.set(null);
     toast.success("Logout success.");
     navigate("/");
+
+    } catch (error) {
+      toast.error("Error logging out.");
+      throw new Error(`HTTP error! Status: ${error}`);
   }
+}
 </script>
 
 <Toaster />

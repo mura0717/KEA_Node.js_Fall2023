@@ -36,7 +36,7 @@ router.get("/api/auth/logout", (req, res) => {
       console.error("Error logout endpoint:", error);
       res.send(500).json({ error: "Error logging out." });
     } else {
-      res.send(200).json({ message: "Logout successful." });
+      res.status(200).json({ message: "Logout successful." });
     }
   });
 });
@@ -45,7 +45,7 @@ router.get("/api/auth/logout", (req, res) => {
 router.get('/api/auth/login/guard', requireLogin, (req, res) => {
   const user = req.session.user;
   if(user) {
-    res.status(200).json({ message: 'Logged in true'});
+    res.status(200).json({ status: 200 });
   } else {
     res.send(401).json({ message: 'Not logged in.'});
   }

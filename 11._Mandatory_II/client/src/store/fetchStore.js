@@ -22,7 +22,6 @@ async function postRequest(endpoint, data) {
 
 // Function to make a GET request
 async function getRequest(endpoint) {
-  const url = BASE_URL_JS + endpoint;
   try {
     const response = await fetch(BASE_URL_JS + endpoint, {
       credentials: "include",

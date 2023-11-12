@@ -26,7 +26,6 @@
       const loginResponse = await postRequest("/api/auth/login", userData);
       const userObj = loginResponse.userObj;
       user.set(userObj);
-      console.log(loginResponse)
       updateLoginStatus();
       if ($user.isAdmin == 0) {
         toast.success("User login success.");
